@@ -1,4 +1,4 @@
-﻿### Time usage
+### Time usage
 Date | Hours | Description
 --- | --- | ---
 15.03.2017 | 2h | Reposition created, initialized the work environment and started writing the documentation
