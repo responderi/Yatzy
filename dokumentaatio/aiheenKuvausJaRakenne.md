@@ -1,11 +1,12 @@
-## Aihe: Yatzy
+## Topic: Yatzy (Yahtzee)
 
-Toteutetaan peli, joka perustuu noppien heittämiseen ja niistä saatujen pistelukujen käyttämiseen. Ideana on viittä noppaa heittämällä saada vuorollaan pisteitä, jotka voidaan asettaa taulukkoon kokonaispisteiksi.
+I will create a game that is based on rolling the dice and getting as high score as possible. Idea is to throw five dice, each player on its own turn, and get highest score for each fitting category. Player with highest total score wins.
 
-Peliin toteutetaan pelaamismahdollisuus sekä tekoälyä vastaan että moninpeli ihmisten kesken lokaalisti. Pelissä tulee olemaan myös jonkintyylinen highscore-lista, jossa pystyy vertaamaan suoritustaan parhaimpiin suorituksiin.
+Single-player against AI and local multiplayer will be implented. Game will also have some sort of high score list for keeping track of the best performances.
 
-**Käyttäjät:** Pelaaja 
 
-## Pelaajan toiminnot:
-* pelaaminen joko tekoälyä tai ihmistä vastaan
-* ennätyslistan tutkiminen
+**Users:** Player 
+
+## Player's actions:
+* playing against either AI or human
+* checking the high score list
