@@ -1,4 +1,4 @@
-﻿## Topic: Yatzy (Yahtzee)
+## Topic: Yatzy (Yahtzee)
 
 I create game that is based on rolling the dive and using their values for scoring. Idea is that each player on their turn rolls five dice and values you get are used for scoring in certain categories. Winner is the player with highest total score.
 
