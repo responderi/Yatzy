@@ -9,3 +9,6 @@ Game will have single-player against AI and local multiplayer with other humans.
 ## Player's actions:
 * playing against AI and humans
 * inspecting high score list
+
+## Class diagram:
+![Class diagram](luokkakaavio.png)
