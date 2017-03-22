@@ -12,49 +12,60 @@ import static org.junit.Assert.*;
  * @author responderi
  */
 public class DieTest {
-    
+
     public DieTest() {
     }
-    
+
     Die testDie;
     Die testTrueDie;
-    
+
     @Before
     public void setUp() {
         testDie = new Die();
         testTrueDie = new Die();
         testTrueDie.activate();
     }
-    
+
     @Test
-    public void getValueWorksCorrectly(){
+    public void getValueWorksCorrectly() {
         assertEquals(testDie.getValue(), 1);
     }
-    
+
     @Test
-    public void getActivatedWorksCorrectly(){
+    public void getActivatedWorksCorrectly() {
         assertEquals(testDie.getActivated(), false);
     }
-    
+
     @Test
-    public void constructorWorksCorrectly(){
+    public void constructorWorksCorrectly() {
         assertEquals(testDie.getValue(), 1);
         assertEquals(testDie.getActivated(), false);
     }
+
     @Test
-    public void setValueSetsCorrectValue(){
+    public void setValueSetsCorrectValue() {
         testDie.setValue(6);
         assertEquals(testDie.getValue(), 6);
     }
 
     @Test
-    public void activateSetsTrue(){
+    public void activateSetsTrue() {
         testDie.activate();
         assertEquals(testDie.getActivated(), true);
     }
+
     @Test
-    public void deactivateSetsFalse(){
+    public void deactivateSetsFalse() {
         testTrueDie.deactivate();
         assertEquals(testTrueDie.getActivated(), false);
+    }
+
+    @Test
+    public void testRollRandomnessInRangeWithHugeSampleSize() {
+        //Testing is impossible to be executed unambiguously due to randomness.
+        for (int i = 0; i < 100001; i++) {
+            testDie.setValue(testDie.roll());
+            assertTrue(testDie.getValue() <= 6 && testDie.getValue() >= 1);
+        }
     }
 }
