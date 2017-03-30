@@ -4,19 +4,21 @@ package yatzy.logic.player;
  *
  * @author responderi
  */
-public class Human {
+public class Human implements Player {
 
     private String name;
-    private boolean turn;
+    private int[] scoreboard;
 
     public Human() {
         this.name = "";
-        this.turn = false;
+        this.scoreboard = new int[7];
+        initializeScoreboard();
     }
 
     public Human(String name) {
         this.name = name;
-        this.turn = false;
+        this.scoreboard = new int[7];
+        initializeScoreboard();
     }
 
     public void setName(String name) {
@@ -27,11 +29,37 @@ public class Human {
         return this.name;
     }
 
-    public boolean isTurn() {
-        return this.turn;
+    public final void initializeScoreboard() {
+        for (int i = 0; i < 7; i++) {
+            this.scoreboard[i] = -1;
+        }
     }
 
-    public void changeTurnState() {
-        this.turn = !this.turn;
+    public void setScore(int category, int score) {
+        this.scoreboard[category] = score;
+    }
+
+    public int getScore(int category) {
+        return this.scoreboard[category];
+    }
+
+    public int getTotalScore() {
+        int sum = 0;
+        for (int i = 0; i < 7; i++) {
+            if (this.scoreboard[i] != -1) {
+                sum += this.scoreboard[i];
+            }
+        }
+        return sum;
+    }
+
+    public int getCurrentScore() {
+        int sum = 0;
+        for (int i = 0; i < 7; i++) {
+            if (this.scoreboard[i] != -1) {
+                sum += this.scoreboard[i];
+            }
+        }
+        return sum;
     }
 }

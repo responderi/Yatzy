@@ -18,7 +18,7 @@ public class HumanTest {
 
     Human testHuman;
     Human testHumanWithName;
-    
+
     @Before
     public void setUp() {
         testHuman = new Human();
@@ -26,39 +26,56 @@ public class HumanTest {
     }
 
     @Test
-    public void constructorWorksCorrectly(){
+    public void constructorWorksCorrectly() {
         assertEquals(testHuman.getName(), "");
-        assertEquals(testHuman.isTurn(), false);
-    }
-    
-    @Test
-    public void constructorWithNameWorksCorrectly(){
-        assertEquals(testHumanWithName.getName(), "Karpo");
-        assertEquals(testHumanWithName.isTurn(), false);
-    }
-    
-    @Test
-    public void setNameSetsCorrectValue(){
-        testHuman.setName("Pertti");
-        assertEquals(testHuman.getName(), "Pertti");
-    }
-    
-    @Test
-    public void getNameReturnsCorrectValue(){
-        String returnedName = testHumanWithName.getName();
-        assertEquals(returnedName, "Karpo");
+        for(int i = 0; i < 7; i++) {
+            assertEquals(testHuman.getScore(i), -1);
+        }
     }
 
     @Test
-    public void changeTurnStateChangesStatusCorrectly(){
-        testHuman.changeTurnState();
-        assertEquals(testHuman.isTurn(), true);
+    public void constructorWithNameWorksCorrectly() {
+        assertEquals(testHumanWithName.getName(), "Karpo");
+        for(int i = 0; i < 7; i++) {
+            assertEquals(testHumanWithName.getScore(i), -1);
+        }
+    }
+
+    @Test
+    public void setNameSetsCorrectValue() {
+        testHuman.setName("Pertti");
+        assertEquals(testHuman.getName(), "Pertti");
+    }
+
+    @Test
+    public void getNameReturnsCorrectValue() {
+        String returnedName = testHumanWithName.getName();
+        assertEquals(returnedName, "Karpo");
     }
     
     @Test
-    public void isTurnReturnsCorrectTurnState(){
-        assertEquals(testHuman.isTurn(), false);
-        testHuman.changeTurnState();
-        assertEquals(testHuman.isTurn(), true);
+    public void initializeScoreboardSetsUpTheArrayCorrectly() {
+        testHuman.initializeScoreboard();
+        for(int i = 0; i < 7; i++) {
+            assertEquals(testHuman.getScore(i), -1);
+        }
+    }
+    
+    @Test
+    public void getCurrentScoreReturnsCorrectSum() {
+        testHuman.setScore(6, 5);
+        assertEquals(testHuman.getCurrentScore(), 5);
+    }
+    
+    @Test
+    public void getTotalScoreReturnsCorrectSum() {
+        testHuman.setScore(0, 50);
+        testHuman.setScore(1, 19);
+        testHuman.setScore(2, 12);
+        testHuman.setScore(3, 9);
+        testHuman.setScore(4, 12);
+        testHuman.setScore(5, 6);
+        testHuman.setScore(6, 20);
+        assertEquals(testHuman.getTotalScore(), 128);
     }
 }

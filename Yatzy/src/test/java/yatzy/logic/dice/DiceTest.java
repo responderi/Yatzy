@@ -11,35 +11,33 @@ import static org.junit.Assert.*;
  *
  * @author responderi
  */
-public class DieTest {
+public class DiceTest {
 
-    public DieTest() {
+    public DiceTest() {
     }
 
-    Die testDie;
-    Die testTrueDie;
+    Dice testDie;
+    Dice testTrueDie;
 
     @Before
     public void setUp() {
-        testDie = new Die();
-        testTrueDie = new Die();
-        testTrueDie.activate();
+        testDie = new Dice(2);
+    }
+    
+    @Test
+    public void constructorWorksCorrectly() {
+        assertEquals(testDie.getId(), 2);
+        assertEquals(testDie.getValue(), 1);
+    }
+    
+    @Test
+    public void getIdReturnsCorrectValue(){
+        assertEquals(testDie.getId(), 2);
     }
 
     @Test
     public void getValueWorksCorrectly() {
         assertEquals(testDie.getValue(), 1);
-    }
-
-    @Test
-    public void getActivatedWorksCorrectly() {
-        assertEquals(testDie.getActivated(), false);
-    }
-
-    @Test
-    public void constructorWorksCorrectly() {
-        assertEquals(testDie.getValue(), 1);
-        assertEquals(testDie.getActivated(), false);
     }
 
     @Test
@@ -49,22 +47,10 @@ public class DieTest {
     }
 
     @Test
-    public void activateSetsTrue() {
-        testDie.activate();
-        assertEquals(testDie.getActivated(), true);
-    }
-
-    @Test
-    public void deactivateSetsFalse() {
-        testTrueDie.deactivate();
-        assertEquals(testTrueDie.getActivated(), false);
-    }
-
-    @Test
     public void testRollRandomnessInRangeWithHugeSampleSize() {
         //Testing is impossible to be executed unambiguously due to randomness.
         for (int i = 0; i < 100001; i++) {
-            testDie.setValue(testDie.roll());
+            testDie.roll();
             assertTrue(testDie.getValue() <= 6 && testDie.getValue() >= 1);
         }
     }
