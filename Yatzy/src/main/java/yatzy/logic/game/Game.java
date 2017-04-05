@@ -9,8 +9,14 @@ import yatzy.logic.scoring.*;
  *
  * @author responderi
  */
+/**
+ * This class is the game engine, which runs the game.
+ */
 public class Game {
 
+    /**
+     * Instances of players and the array of dice.
+     */
     private Scanner scanner = new Scanner(System.in);
     public Human player1 = new Human("player1");
     public Human player2 = new Human("player2");
@@ -21,6 +27,11 @@ public class Game {
         this.score = score;
     }
 
+    /**
+     * Method initializes the dice.
+     *
+     * @see yatzy.logic.dice.Dice
+     */
     public void initializeDice() {
         Dice dieFirst = new Dice(1);
         Dice dieSecond = new Dice(2);
@@ -34,16 +45,31 @@ public class Game {
         dice.add(dieFifth);
     }
 
+    /**
+     * Method rerolls a die
+     *
+     * @see yatzy.logic.dice.Dice
+     */
     public void rerollDie(int dieId) {
         dice.get(dieId - 1).roll();
     }
 
+    /**
+     * Method rerolls the dice
+     *
+     * @see yatzy.logic.dice.Dice
+     */
     public void rerollDice() {
         for (int i = 0; i < 5; i++) {
             dice.get(i).roll();
         }
     }
 
+    /**
+     * Method prints dice values.
+     *
+     * @see yatzy.logic.dice.Dice
+     */
     public void printDiceValues() {
         for (int i = 0; i < 5; i++) {
             System.out.print(dice.get(i).getValue() + " ");
@@ -51,6 +77,12 @@ public class Game {
         System.out.print("\n");
     }
 
+    /**
+     * Following method is the game engine, which keeps track of turns.
+     *
+     * @see yatzy.logic.dice.Dice
+     * @see yatzy.logic.player.Human
+     */
     public void playGame() throws Exception {
         initializeDice();
         HighScore highScore = new HighScore();
@@ -83,6 +115,14 @@ public class Game {
 
     }
 
+    /**
+     * Following method offers the actions for players to make.
+     *
+     * @param player Player in turn
+     *
+     * @see yatzy.logic.dice.Dice
+     * @see yatzy.logic.player.Human
+     */
     public void playerAction(Human player) {
         rerollDice();
         printDiceValues();
@@ -109,6 +149,12 @@ public class Game {
         }
     }
 
+    /**
+     * Following method offers the reroll action for players.
+     *
+     * @see yatzy.logic.dice.Dice
+     * @see yatzy.logic.player.Human
+     */
     public void rerollAction() {
         System.out.println("Give dice numbers within range 1 to 5 and end with a zero (0)");
         //It does not matter if player chooses to roll one die more then once, result wont be seen until the decision time.

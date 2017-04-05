@@ -13,6 +13,9 @@ public class HighScore {
 
     }
 
+    /**
+     * Following method reads high scores.
+     */
     public void readHighScore() {
         Scanner scanner = null;
         File highScoreList = new File("src/highscore.txt");
@@ -31,10 +34,11 @@ public class HighScore {
 
         scanner.close();
     }
-    
+
     /**
-     *
-     * @param score
+     * Following method sets new high scores.
+     * 
+     * @param score score to set in high score list
      */
     public void writeNewHighScore(int score) throws Exception {
         //Currently this method just adds player1's all scores.

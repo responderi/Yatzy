@@ -21,11 +21,14 @@ public class Dice {
     public int getValue() {
         return this.value;
     }
-    
+
     public int getId() {
         return this.id;
     }
-    
+
+    /**
+     * Following method rolls a die.
+     */
     public void roll() {
         this.value = (int) (6.0 * Math.random()) + 1;
     }

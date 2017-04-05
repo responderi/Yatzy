@@ -10,4 +10,7 @@ Date | Hours | Description
 27.03.2017 | 4h | Draw sketches of the structure and read some recap of making GUI
 29.03.2017 | 5h | Programming scoring and game elements
 30.03.2017 | 5h | Pushed for deadline requirements and kept going with game engine. Now scoring works.
+03.04.2017 | 2h | Tried to fix the bugs.
+04.04.2017 | 4h | Started programming GUI with not that good results
+05.04.2017 | 4h | Pushed for the deadline, not sure if can make all the subsections.
 ... | ... | ...

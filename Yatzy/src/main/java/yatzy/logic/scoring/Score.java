@@ -21,6 +21,10 @@ public class Score {
 
     }
 
+    /**
+     * Following method counts the possibilites and scores for each dice
+     * combination and sets the score.
+     */
     public void counting(Human player, Game game) {
         points = 0;
         //First we count the amount of each number occurring.
@@ -170,7 +174,7 @@ public class Score {
                 player.setScore(6, points);
                 System.out.println("Sum. " + points + " points.");
                 break;
-                
+
             default:
                 System.out.println("Currently its expected that player puts accepted value in range. So if you see this, one category will be empty (-1).");
                 break;

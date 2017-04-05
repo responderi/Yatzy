@@ -29,6 +29,9 @@ public class Human implements Player {
         return this.name;
     }
 
+    /**
+     * Following method initializes player specific scoreboard.
+     */
     public final void initializeScoreboard() {
         for (int i = 0; i < 8; i++) {
             this.scoreboard[i] = -1;
@@ -43,6 +46,11 @@ public class Human implements Player {
         return this.scoreboard[category];
     }
 
+    /**
+     * Following method returns player's total score.
+     *
+     * * @return total score
+     */
     public int getTotalScore() {
         int sum = 0;
         for (int i = 0; i < 8; i++) {
@@ -53,6 +61,11 @@ public class Human implements Player {
         return sum;
     }
 
+    /**
+     * Following method returns player's current score.
+     *
+     * * @return current score
+     */
     public int getCurrentScore() {
         int sum = 0;
         for (int i = 0; i < 8; i++) {
