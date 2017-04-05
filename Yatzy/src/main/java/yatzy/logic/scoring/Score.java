@@ -129,8 +129,6 @@ public class Score {
                 }
             case 5:
                 //CURRENTLY THERE IS A BUG INVOLVING ANOTHER PAIR BEING WITH ONES.
-                System.out.println(firstIndex);
-                System.out.println(secondIndex);
                 if (count[firstIndex] == 2 && count[secondIndex] == 2) {
                     points = 2 * (firstIndex + 1) + 2 * (secondIndex + 1);
                     player.setScore(4, points);
