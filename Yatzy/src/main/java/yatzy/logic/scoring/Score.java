@@ -146,7 +146,7 @@ public class Score {
                 //CURRENTLY THERE IS A BUG INVOLVING A PAIR WITH ONES.
                 if (count[firstIndex] == 2) {
                     if (count[secondIndex] == 2) {
-                        System.out.println("Choose which one you want as a pair: 1. " + count[firstIndex] + " or 2. " + count[secondIndex]);
+                        System.out.println("Choose which one you want as a pair: 1. " + (firstIndex + 1) + " or 2. " + (secondIndex + 1));
                         int pair = Integer.parseInt(scanner.nextLine());
                         if (pair == 2) {
                             points = 2 * (secondIndex + 1);
@@ -172,7 +172,7 @@ public class Score {
                 player.setScore(6, points);
                 System.out.println("Sum. " + points + " points.");
                 break;
-
+                
             default:
                 System.out.println("Currently its expected that player puts accepted value in range. So if you see this, one category will be empty (-1).");
                 break;

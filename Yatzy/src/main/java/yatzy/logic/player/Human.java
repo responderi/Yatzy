@@ -11,13 +11,13 @@ public class Human implements Player {
 
     public Human() {
         this.name = "";
-        this.scoreboard = new int[7];
+        this.scoreboard = new int[8];
         initializeScoreboard();
     }
 
     public Human(String name) {
         this.name = name;
-        this.scoreboard = new int[7];
+        this.scoreboard = new int[8];
         initializeScoreboard();
     }
 
@@ -30,7 +30,7 @@ public class Human implements Player {
     }
 
     public final void initializeScoreboard() {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             this.scoreboard[i] = -1;
         }
     }
@@ -45,7 +45,7 @@ public class Human implements Player {
 
     public int getTotalScore() {
         int sum = 0;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (this.scoreboard[i] != -1) {
                 sum += this.scoreboard[i];
             }
@@ -55,7 +55,7 @@ public class Human implements Player {
 
     public int getCurrentScore() {
         int sum = 0;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (this.scoreboard[i] != -1) {
                 sum += this.scoreboard[i];
             }

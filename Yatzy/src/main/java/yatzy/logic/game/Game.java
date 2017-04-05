@@ -12,8 +12,8 @@ import yatzy.logic.scoring.*;
 public class Game {
 
     private Scanner scanner = new Scanner(System.in);
-    private Human player1 = new Human("player1");
-    private Human player2 = new Human("player2");
+    public Human player1 = new Human("player1");
+    public Human player2 = new Human("player2");
     private Score score;
     public ArrayList<Dice> dice = new ArrayList<>();
 
@@ -51,8 +51,10 @@ public class Game {
         System.out.print("\n");
     }
 
-    public void playGame() {
+    public void playGame() throws Exception {
         initializeDice();
+        HighScore highScore = new HighScore();
+        highScore.readHighScore();
         for (int t = 0; t < 7; t++) {
             System.out.println("Turn " + (t + 1));
             if (t == 6) {
@@ -77,6 +79,7 @@ public class Game {
         } else {
             System.out.println("Draw.");
         }
+        highScore.writeNewHighScore(player1.getTotalScore());
 
     }
 
@@ -90,19 +93,9 @@ public class Game {
             actionInput = Integer.parseInt(scanner.nextLine());
             switch (actionInput) {
                 case 1:
-                    System.out.println("Give dice numbers within range 1 to 5 and end with a zero (0)");
-                    //It does not matter if player chooses to roll one die more then once, result wont be seen until the decision time.
-                    while (true) {
-                        int inputInteger = Integer.parseInt(scanner.nextLine());
-                        if (inputInteger == 0) {
-                            break;
-                        } else if (inputInteger < 1 || inputInteger > 5) {
-                            System.out.println("Given number must be in range of 1 to 5");
-                        } else {
-                            rerollDie(inputInteger);
-                        }
-                    }
-                    printDiceValues();
+                    rerollAction();
+                    System.out.println("You have one reroll left. If you dont want to use last rolls, start scoring with 0.");
+                    rerollAction();
                     score.counting(player, this);
                     break;
                 case 2:
@@ -114,5 +107,21 @@ public class Game {
                     break;
             }
         }
+    }
+
+    public void rerollAction() {
+        System.out.println("Give dice numbers within range 1 to 5 and end with a zero (0)");
+        //It does not matter if player chooses to roll one die more then once, result wont be seen until the decision time.
+        while (true) {
+            int inputInteger = Integer.parseInt(scanner.nextLine());
+            if (inputInteger == 0) {
+                break;
+            } else if (inputInteger < 1 || inputInteger > 5) {
+                System.out.println("Given number must be in range of 1 to 5");
+            } else {
+                rerollDie(inputInteger);
+            }
+        }
+        printDiceValues();
     }
 }
