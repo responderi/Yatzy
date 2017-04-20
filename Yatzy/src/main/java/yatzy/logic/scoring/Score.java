@@ -24,6 +24,9 @@ public class Score {
     /**
      * Following method counts the possibilites and scores for each dice
      * combination and sets the score.
+     *
+     * @param player
+     * @param game
      */
     public void counting(Human player, Game game) {
         points = 0;
@@ -179,7 +182,5 @@ public class Score {
                 System.out.println("Currently its expected that player puts accepted value in range. So if you see this, one category will be empty (-1).");
                 break;
         }
-        //Following part is for the upper section of point sheet, which is to be implented.
-
     }
 }

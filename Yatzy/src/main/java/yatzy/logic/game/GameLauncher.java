@@ -11,10 +11,7 @@ import yatzy.gui.*;
 public class GameLauncher {
 
     public static void main(String[] args) throws Exception {
-        Score newScore = new Score();
-        Game newGame = new Game(newScore);
-        StartGame startGame = new StartGame();
-        SwingUtilities.invokeLater(startGame);
-        newGame.playGame();
+        StartGameGUI game = new StartGameGUI();
+        game.setVisible(true);
     }
 }
