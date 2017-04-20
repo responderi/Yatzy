@@ -13,4 +13,5 @@ Date | Hours | Description
 03.04.2017 | 2h | Tried to fix the bugs.
 04.04.2017 | 4h | Started programming GUI with not that good results
 05.04.2017 | 4h | Pushed for the deadline, not sure if can make all the subsections.
+20.04.2017 | 5h | Been very busy lately, hoping to catch up more by the next deadline and demoevent
 ... | ... | ...
