@@ -14,5 +14,5 @@ Game will have single-player against AI and local multiplayer with other humans.
 ![Class diagram](luokkakaavio.png)
 
 ## Sequence diagrams:
-![Sequence diagram](Game walkthrough without details of turns.png)
-![Sequence diagram](Player rolls and scores them.png)
+![Sequence diagram](game1.png)
+![Sequence diagram](player1.png)
