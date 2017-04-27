@@ -1,12 +1,23 @@
 package yatzy.logic.player;
 
 /**
- *
- * @author responderi
+ * This interface is used for future different player types.
+ * 
+ * @author responderi Creator of the project
  */
 public interface Player {
     
-    String getName(); //returns player's name
+    /**
+     * Returns player's name.
+     * 
+     * @return returns player's name
+     */
+    String getName();
     
-    void setName(String name); //sets new value as player's name
+    /**
+     * Sets new value as player's name.
+     * 
+     * @param name name to be set up.
+     */
+    void setName(String name);
 }

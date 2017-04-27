@@ -6,8 +6,9 @@ import yatzy.logic.player.Human;
 import yatzy.logic.game.*;
 
 /**
- *
- * @author responderi
+ * This class is responsible of counting points for given dice.
+ * 
+ * @author responderi Creator of the project
  */
 public class Score {
 
@@ -17,6 +18,10 @@ public class Score {
     private int secondIndex;
     private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Constructor for scores.
+     * 
+     */
     public Score() {
 
     }
@@ -25,8 +30,8 @@ public class Score {
      * Following method counts the possibilites and scores for each dice
      * combination and sets the score.
      *
-     * @param player
-     * @param game
+     * @param player Indicates player whose turn it is
+     * @param game Specifies the game and it dice to modify
      */
     public void counting(Human player, Game game) {
         points = 0;

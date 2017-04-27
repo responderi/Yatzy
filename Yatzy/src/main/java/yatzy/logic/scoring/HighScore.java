@@ -2,13 +2,17 @@ package yatzy.logic.scoring;
 
 /**
  *
- * @author responderi
+ * @author responderi Creator of the project
  */
 import java.util.Scanner;
 import java.io.*;
 
 public class HighScore {
 
+    /**
+     * Constructor for high score class.
+     *
+     */
     public HighScore() {
 
     }
@@ -37,13 +41,15 @@ public class HighScore {
 
     /**
      * Following method sets new high scores.
-     * 
+     *
      * @param score score to set in high score list
+     * @throws java.lang.Exception Throws exception if cant find file
      */
     public void writeNewHighScore(int score) throws Exception {
         //Currently this method just adds player1's all scores.
-        FileWriter addScore = new FileWriter("src/highscore.txt", true);
-        addScore.write("" + score + "\n");
-        addScore.close();
+        try (
+                FileWriter addScore = new FileWriter("src/highscore.txt", true)) {
+            addScore.write("" + score + "\n");
+        }
     }
 }

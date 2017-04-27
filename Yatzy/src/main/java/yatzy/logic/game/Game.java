@@ -7,7 +7,7 @@ import yatzy.logic.scoring.*;
 
 /**
  *
- * @author responderi
+ * @author responderi Creator of the project
  */
 /**
  * This class is the game engine, which runs the game.
@@ -23,6 +23,11 @@ public class Game {
     private Score score;
     public ArrayList<Dice> dice = new ArrayList<>();
 
+    /**
+     * Constructor which sets up the game.
+     * 
+     * @param score Connects the scoring system with the game
+     */
     public Game(Score score) {
         this.score = score;
     }
@@ -46,7 +51,9 @@ public class Game {
     }
 
     /**
-     * Method rerolls a die
+     * Method rerolls a die.
+     * 
+     * @param dieId Die to be rolled
      *
      * @see yatzy.logic.dice.Dice
      */
@@ -55,7 +62,7 @@ public class Game {
     }
 
     /**
-     * Method rerolls the dice
+     * Method rerolls the dice.
      *
      * @see yatzy.logic.dice.Dice
      */
@@ -80,6 +87,7 @@ public class Game {
     /**
      * Following method is the game engine, which keeps track of turns.
      *
+     * @throws java.lang.Exception Throws exception if cant find file for highscore.
      * @see yatzy.logic.dice.Dice
      * @see yatzy.logic.player.Human
      */

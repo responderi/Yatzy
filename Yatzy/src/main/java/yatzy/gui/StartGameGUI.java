@@ -53,10 +53,11 @@ public class StartGameGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
-        Score newScore = new Score();
-        Game newGame = new Game(newScore);
+
         try {
             setVisible(false);
+            Score newScore = new Score();
+            Game newGame = new Game(newScore);
             newGame.playGame();
         } catch (Exception ex) {
             Logger.getLogger(StartGameGUI.class.getName()).log(Level.SEVERE, null, ex);

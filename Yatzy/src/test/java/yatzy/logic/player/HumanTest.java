@@ -19,16 +19,28 @@ public class HumanTest {
     Human testHuman;
     Human testHumanWithName;
 
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
     @Before
     public void setUp() {
         testHuman = new Human();
         testHumanWithName = new Human("Karpo");
     }
 
+    @After
+    public void tearDown() throws Exception {
+    }
+
     @Test
     public void constructorWorksCorrectly() {
         assertEquals(testHuman.getName(), "");
-        for(int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             assertEquals(testHuman.getScore(i), -1);
         }
     }
@@ -36,7 +48,7 @@ public class HumanTest {
     @Test
     public void constructorWithNameWorksCorrectly() {
         assertEquals(testHumanWithName.getName(), "Karpo");
-        for(int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             assertEquals(testHumanWithName.getScore(i), -1);
         }
     }
@@ -52,21 +64,21 @@ public class HumanTest {
         String returnedName = testHumanWithName.getName();
         assertEquals(returnedName, "Karpo");
     }
-    
+
     @Test
     public void initializeScoreboardSetsUpTheArrayCorrectly() {
         testHuman.initializeScoreboard();
-        for(int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             assertEquals(testHuman.getScore(i), -1);
         }
     }
-    
+
     @Test
     public void getCurrentScoreReturnsCorrectSum() {
         testHuman.setScore(6, 5);
         assertEquals(testHuman.getCurrentScore(), 5);
     }
-    
+
     @Test
     public void getTotalScoreReturnsCorrectSum() {
         testHuman.setScore(0, 50);
@@ -78,4 +90,5 @@ public class HumanTest {
         testHuman.setScore(6, 20);
         assertEquals(testHuman.getTotalScore(), 128);
     }
+
 }

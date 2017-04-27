@@ -1,14 +1,20 @@
 package yatzy.logic.dice;
 
 /**
- *
- * @author responderi
+ * This class is responsible of creating and modifying of the dice.
+ * 
+ * @author responderi Creator of the project
  */
 public class Dice {
 
     private int value;
     private final int id;
 
+    /**
+     * Constructor which creates a die.
+     * 
+     * @param id Integer that specifies a die
+     */
     public Dice(int id) {
         this.value = 1;
         this.id = id;
