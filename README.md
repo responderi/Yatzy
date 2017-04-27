@@ -15,7 +15,4 @@ Game is very simple to use. Start up the jar file in directory and follow the ru
 
 ## To-Do list
 * Implenting tests.
-* Implenting last scoring categories.
-* Honing fluency of the game engine.
 * GUI
-* AI
