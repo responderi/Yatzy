@@ -9,6 +9,10 @@ Yatzy is a dice game, in which you try to score as good score for each given cat
 * [Checkstyle-report](https://htmlpreview.github.io/?https://github.com/responderi/Yatzy/blob/master/documentation/checkstyle-reports/checkstyle.html)
 * [Pit-report](https://htmlpreview.github.io/?https://github.com/responderi/Yatzy/blob/master/documentation/pit-reports/201704051942/index.html)
 
+## Instructions:
+
+Game is very simple to use. Start up the jar file in directory and follow the rules given in game.
+
 ## To-Do list
 * Implenting tests.
 * Implenting last scoring categories.
