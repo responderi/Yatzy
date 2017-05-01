@@ -18,18 +18,27 @@ public class Game {
      * Instances of players and the array of dice.
      */
     private Scanner scanner = new Scanner(System.in);
-    public Human player1 = new Human("player1");
-    public Human player2 = new Human("player2");
+    public Human player1;
+    public Human player2;
+    public Human playerInTurn;
     private Score score;
-    public ArrayList<Dice> dice = new ArrayList<>();
+    public ArrayList<Dice> dice;
+    public int rerolls;
 
     /**
      * Constructor which sets up the game.
-     * 
+     *
      * @param score Connects the scoring system with the game
+     * @param player1
+     * @param player2
+     * @param dice
      */
-    public Game(Score score) {
+    public Game(Score score, Human player1, Human player2, ArrayList<Dice> dice) {
         this.score = score;
+        this.player1 = player1;
+        this.player2 = player2;
+        this.dice = dice;
+        initializeDice();
     }
 
     /**
@@ -52,7 +61,7 @@ public class Game {
 
     /**
      * Method rerolls a die.
-     * 
+     *
      * @param dieId Die to be rolled
      *
      * @see yatzy.logic.dice.Dice
@@ -84,43 +93,39 @@ public class Game {
         System.out.print("\n");
     }
 
+    public void printHighScore() {
+        HighScore highScore = new HighScore();
+        highScore.readHighScore();
+    }
+
+    public void setNewHighScore(HighScore highScore) throws Exception {
+        highScore.writeNewHighScore(player1.getTotalScore());
+    }
+
+    public void changeTurn() {
+        if (playerInTurn == player1) {
+            playerInTurn = player2;
+        } else {
+            playerInTurn = player1;
+        }
+    }
+
+    public Human playerInTurn() {
+        return playerInTurn;
+    }
+
     /**
      * Following method is the game engine, which keeps track of turns.
      *
-     * @throws java.lang.Exception Throws exception if cant find file for highscore.
+     * @throws java.lang.Exception Throws exception if cant find file for
+     * highscore.
      * @see yatzy.logic.dice.Dice
      * @see yatzy.logic.player.Human
      */
-    public void playGame() throws Exception {
-        initializeDice();
-        HighScore highScore = new HighScore();
-        highScore.readHighScore();
-        for (int t = 0; t < 7; t++) {
-            System.out.println("Turn " + (t + 1));
-            if (t == 6) {
-                System.out.println("FINAL TURN!");
-            }
-            System.out.println("######################################");
-            System.out.println("Player1 turn");
-            playerAction(player1);
-            System.out.println("Player1 currently has " + player1.getCurrentScore() + " points.");
-            System.out.println("");
-            System.out.println("Player2 turn");
-            playerAction(player2);
-            System.out.println("Player2 currently has " + player2.getCurrentScore() + " points.");
-            System.out.println("");
-        }
-        System.out.println("Player1 total score: " + player1.getTotalScore());
-        System.out.println("Player2 total score: " + player2.getTotalScore());
-        if (player1.getTotalScore() > player2.getTotalScore()) {
-            System.out.println("Player1 won!");
-        } else if (player1.getTotalScore() < player2.getTotalScore()) {
-            System.out.println("Player2 won!");
-        } else {
-            System.out.println("Draw.");
-        }
-        highScore.writeNewHighScore(player1.getTotalScore());
-
+    public void playTurn(Human player) throws Exception {
+        System.out.println(player.getName() + "'s turn");
+        rerolls = 0;
+//        playerAction(player);
     }
 
     /**
@@ -131,51 +136,41 @@ public class Game {
      * @see yatzy.logic.dice.Dice
      * @see yatzy.logic.player.Human
      */
-    public void playerAction(Human player) {
-        rerollDice();
-        printDiceValues();
-        int actionInput = 0;
-        //At the moment, it is expected that user does not use strings instead of integers.
-        while (actionInput != 1 && actionInput != 2) {
-            System.out.print("What action will you do? (1. Reroll or 2. Score): ");
-            actionInput = Integer.parseInt(scanner.nextLine());
-            switch (actionInput) {
-                case 1:
-                    rerollAction();
-                    System.out.println("You have one reroll left. If you dont want to use last rolls, start scoring with 0.");
-                    rerollAction();
-                    score.counting(player, this);
-                    break;
-                case 2:
-                    score.counting(player, this);
-                    break;
-                default:
-                    System.out.println("You must give integer 1 or 2! (You will be forced to score now)");
-                    score.counting(player, this);
-                    break;
-            }
-        }
-    }
+//    public void playerAction(Human player) {
+//        rerollDice();
+//        printDiceValues();
+//        int actionInput = 0;
+//        //At the moment, it is expected that user does not use strings instead of integers.
+//        while (actionInput != 1 && actionInput != 2) {
+//            System.out.print("What action will you do? (1. Reroll or 2. Score): ");
+//            actionInput = Integer.parseInt(scanner.nextLine());
+//            switch (actionInput) {
+//                case 1:
+//                    //rerollAction();
+//                    System.out.println("You have one reroll left. If you dont want to use last rolls, start scoring with 0.");
+//                    //rerollAction();
+//                    score.counting(player, this);
+//                    break;
+//                case 2:
+//                    score.counting(player, this);
+//                    break;
+//                default:
+//                    System.out.println("You must give integer 1 or 2! (You will be forced to score now)");
+//                    score.counting(player, this);
+//                    break;
+//            }
+//        }
+//    }
 
-    /**
-     * Following method offers the reroll action for players.
-     *
-     * @see yatzy.logic.dice.Dice
-     * @see yatzy.logic.player.Human
-     */
-    public void rerollAction() {
-        System.out.println("Give dice numbers within range 1 to 5 and end with a zero (0)");
-        //It does not matter if player chooses to roll one die more then once, result wont be seen until the decision time.
-        while (true) {
-            int inputInteger = Integer.parseInt(scanner.nextLine());
-            if (inputInteger == 0) {
-                break;
-            } else if (inputInteger < 1 || inputInteger > 5) {
-                System.out.println("Given number must be in range of 1 to 5");
-            } else {
-                rerollDie(inputInteger);
-            }
-        }
-        printDiceValues();
+    public void addReroll() {
+        rerolls++;
+    }
+    
+    public int checkRerolls() {
+        return rerolls;
+    }
+    
+    public void resetRerolls() {
+        rerolls = 0;
     }
 }

@@ -1,13 +1,16 @@
 package yatzy.logic.scoring;
 
 import java.util.*;
+import javax.swing.SwingUtilities;
+import yatzy.gui.GameScreenGUI;
+import yatzy.gui.ScoringScreenGUI;
 import yatzy.logic.dice.Dice;
 import yatzy.logic.player.Human;
 import yatzy.logic.game.*;
 
 /**
  * This class is responsible of counting points for given dice.
- * 
+ *
  * @author responderi Creator of the project
  */
 public class Score {
@@ -20,20 +23,23 @@ public class Score {
 
     /**
      * Constructor for scores.
-     * 
+     *
      */
     public Score() {
 
+    }
+
+    public boolean checkScored(int categoryIndex, Game game) {
+        return game.playerInTurn().getScore(categoryIndex) != -1;
     }
 
     /**
      * Following method counts the possibilites and scores for each dice
      * combination and sets the score.
      *
-     * @param player Indicates player whose turn it is
      * @param game Specifies the game and it dice to modify
      */
-    public void counting(Human player, Game game) {
+    public void counting(Human player, Game game, int index) {
         points = 0;
         //First we count the amount of each number occurring.
         count = new int[7];
@@ -59,41 +65,7 @@ public class Score {
             secondIndex = 6;
         }
 
-        int input;
-
-        //At the moment, it is expected that user does not use strings instead of integers.
-        while (true) {
-            if (!(player.getScore(0) != -1)) {
-                System.out.println("1. Yahtzee");
-            }
-            if (!(player.getScore(1) != -1)) {
-                System.out.println("2. Full House");
-            }
-            if (!(player.getScore(2) != -1)) {
-                System.out.println("3. Four of a kind");
-            }
-            if (!(player.getScore(3) != -1)) {
-                System.out.println("4. Three of a kind");
-            }
-            if (!(player.getScore(4) != -1)) {
-                System.out.println("5. Two pairs");
-            }
-            if (!(player.getScore(5) != -1)) {
-                System.out.println("6. A pair");
-            }
-            if (!(player.getScore(6) != -1)) {
-                System.out.println("7. Sum");
-            }
-            System.out.print("Give number of the category you want to score: ");
-            input = Integer.parseInt(scanner.nextLine());
-            if (player.getScore(input - 1) != -1) {
-                System.out.println("You have already scored this category, give new category!");
-            } else {
-                break;
-            }
-        }
-
-        switch (input) {
+        switch (index) {
             case 1:
                 if (count[firstIndex] == 5) {
                     player.setScore(0, 50);
@@ -155,15 +127,10 @@ public class Score {
             case 6:
                 //CURRENTLY THERE IS A BUG INVOLVING A PAIR WITH ONES.
                 if (count[firstIndex] == 2) {
-                    if (count[secondIndex] == 2) {
-                        System.out.println("Choose which one you want as a pair: 1. " + (firstIndex + 1) + " or 2. " + (secondIndex + 1));
-                        int pair = Integer.parseInt(scanner.nextLine());
-                        if (pair == 2) {
-                            points = 2 * (secondIndex + 1);
-                            player.setScore(5, points);
-                            System.out.println("A pair. " + points + " points.");
-                            break;
-                        }
+                    if ((count[secondIndex] == 2) && (count[secondIndex] > count[firstIndex])) {
+                        points = 2 * (secondIndex + 1);
+                        player.setScore(5, points);
+                        break;
                     }
                     points = 2 * (firstIndex + 1);
                     player.setScore(5, points);
@@ -188,4 +155,5 @@ public class Score {
                 break;
         }
     }
+
 }
