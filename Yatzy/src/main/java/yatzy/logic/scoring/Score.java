@@ -40,6 +40,7 @@ public class Score {
      * @param game Specifies the game and it dice to modify
      */
     public void counting(Human player, Game game, int index) {
+        game.playTurn();
         points = 0;
         //First we count the amount of each number occurring.
         count = new int[7];
@@ -69,11 +70,9 @@ public class Score {
             case 1:
                 if (count[firstIndex] == 5) {
                     player.setScore(0, 50);
-                    System.out.println("Yahtzee!!! 50 points!");
                     break;
                 } else {
                     player.setScore(0, 0);
-                    System.out.println("Yahtzee, 0 points.");
                     break;
                 }
 
@@ -81,11 +80,9 @@ public class Score {
                 if (count[firstIndex] == 3 && count[secondIndex] == 2) {
                     points = 3 * (firstIndex + 1) + 2 * (secondIndex + 1);
                     player.setScore(1, points);
-                    System.out.println("Full House! " + points + " points!");
                     break;
                 } else {
                     player.setScore(1, 0);
-                    System.out.println("Full House, 0 points.");
                     break;
                 }
 
@@ -93,22 +90,18 @@ public class Score {
                 if (count[firstIndex] == 4) {
                     points = 4 * (firstIndex + 1);
                     player.setScore(2, points);
-                    System.out.println("Four of a kind! " + points + " points!");
                     break;
                 } else {
                     player.setScore(2, 0);
-                    System.out.println("Four of a kind, 0 points.");
                     break;
                 }
             case 4:
                 if (count[firstIndex] == 3) {
                     points = 3 * (firstIndex + 1);
                     player.setScore(3, points);
-                    System.out.println("Three of a kind! " + points + " points!");
                     break;
                 } else {
                     player.setScore(3, 0);
-                    System.out.println("Three of a kind, 0 points.");
                     break;
                 }
             case 5:
@@ -116,11 +109,9 @@ public class Score {
                 if (count[firstIndex] == 2 && count[secondIndex] == 2) {
                     points = 2 * (firstIndex + 1) + 2 * (secondIndex + 1);
                     player.setScore(4, points);
-                    System.out.println("Two pairs! " + points + " points!");
                     break;
                 } else {
                     player.setScore(4, 0);
-                    System.out.println("Two pairs, 0 points.");
                     break;
                 }
 
@@ -134,11 +125,9 @@ public class Score {
                     }
                     points = 2 * (firstIndex + 1);
                     player.setScore(5, points);
-                    System.out.println("A pair. " + points + " points.");
                     break;
                 } else {
                     player.setScore(5, 0);
-                    System.out.println("A pair, 0 points.");
                     break;
                 }
             case 7:
@@ -147,11 +136,9 @@ public class Score {
                     points += game.dice.get(i).getValue();
                 }
                 player.setScore(6, points);
-                System.out.println("Sum. " + points + " points.");
                 break;
 
             default:
-                System.out.println("Currently its expected that player puts accepted value in range. So if you see this, one category will be empty (-1).");
                 break;
         }
     }

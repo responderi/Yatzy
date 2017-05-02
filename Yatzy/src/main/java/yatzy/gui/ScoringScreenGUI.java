@@ -18,11 +18,12 @@ public class ScoringScreenGUI implements Runnable {
     public Game game;
     public Score score;
     public ArrayList<Dice> dice;
-    public Human player;
+    public Human player1, player2;
 
-    public ScoringScreenGUI(Game game, Score score, Human player, ArrayList<Dice> dice) {
+    public ScoringScreenGUI(Game game, Score score, Human player1, Human player2, ArrayList<Dice> dice) {
         this.game = game;
-        this.player = player;
+        this.player1 = player1;
+        this.player2 = player2;
         this.dice = dice;
         this.score = score;
     }
@@ -60,8 +61,20 @@ public class ScoringScreenGUI implements Runnable {
         JLabel fullHouseText = new JLabel("Full House");
         JLabel sumText = new JLabel("Sum");
         JLabel yatzyText = new JLabel("Yatzy");
-        PairListener pairListener = new PairListener(game, score, pairText, game.playerInTurn());
+        PairListener pairListener = new PairListener(game, score, game.playerInTurn(), frame);
+        TwoPairListener twoPairListener = new TwoPairListener(game, score, game.playerInTurn(), frame);
+        ThreesListener threesListener = new ThreesListener(game, score, game.playerInTurn(), frame);
+        FoursListener foursListener = new FoursListener(game, score, game.playerInTurn(), frame);
+        FullHouseListener fullHouseListener = new FullHouseListener(game, score, game.playerInTurn(), frame);
+        SumListener sumListener = new SumListener(game, score, game.playerInTurn(), frame);
+        YatzyListener yatzyListener = new YatzyListener(game, score, game.playerInTurn(), frame);
         pairButton.addActionListener(pairListener);
+        twoPairsButton.addActionListener(twoPairListener);
+        threesButton.addActionListener(threesListener);
+        foursButton.addActionListener(foursListener);
+        fullHouseButton.addActionListener(fullHouseListener);
+        sumButton.addActionListener(sumListener);
+        yatzyButton.addActionListener(yatzyListener);
         panel.add(pairButton);
         panel.add(pairText);
         panel.add(twoPairsButton);

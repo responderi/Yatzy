@@ -1,9 +1,11 @@
 package yatzy.logic.game;
 
 import java.util.*;
+import yatzy.gui.EndScreenGUI;
 import yatzy.logic.dice.*;
 import yatzy.logic.player.*;
 import yatzy.logic.scoring.*;
+import javax.swing.*;
 
 /**
  *
@@ -24,6 +26,7 @@ public class Game {
     private Score score;
     public ArrayList<Dice> dice;
     public int rerolls;
+    public int turn;
 
     /**
      * Constructor which sets up the game.
@@ -38,6 +41,8 @@ public class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.dice = dice;
+        this.turn = 0;
+        this.playerInTurn = player1;
         initializeDice();
     }
 
@@ -58,6 +63,7 @@ public class Game {
         dice.add(dieFourth);
         dice.add(dieFifth);
     }
+
 
     /**
      * Method rerolls a die.
@@ -122,55 +128,48 @@ public class Game {
      * @see yatzy.logic.dice.Dice
      * @see yatzy.logic.player.Human
      */
-    public void playTurn(Human player) throws Exception {
-        System.out.println(player.getName() + "'s turn");
-        rerolls = 0;
-//        playerAction(player);
+    public void playTurn() {
+        turn++;
     }
 
-    /**
-     * Following method offers the actions for players to make.
-     *
-     * @param player Player in turn
-     *
-     * @see yatzy.logic.dice.Dice
-     * @see yatzy.logic.player.Human
-     */
-//    public void playerAction(Human player) {
-//        rerollDice();
-//        printDiceValues();
-//        int actionInput = 0;
-//        //At the moment, it is expected that user does not use strings instead of integers.
-//        while (actionInput != 1 && actionInput != 2) {
-//            System.out.print("What action will you do? (1. Reroll or 2. Score): ");
-//            actionInput = Integer.parseInt(scanner.nextLine());
-//            switch (actionInput) {
-//                case 1:
-//                    //rerollAction();
-//                    System.out.println("You have one reroll left. If you dont want to use last rolls, start scoring with 0.");
-//                    //rerollAction();
-//                    score.counting(player, this);
-//                    break;
-//                case 2:
-//                    score.counting(player, this);
-//                    break;
-//                default:
-//                    System.out.println("You must give integer 1 or 2! (You will be forced to score now)");
-//                    score.counting(player, this);
-//                    break;
-//            }
-//        }
-//    }
+    public void checkIfLastTurn() {
+        if (turn == 14) {
+            endGame();
+        }
+    }
+
+    public void endGame() {
+        EndScreenGUI endGameScreen = new EndScreenGUI(this, player1, player2, dice, score);
+        SwingUtilities.invokeLater(endGameScreen);
+    }
+
+    public String winner() {
+        if (player1.getTotalScore() > player2.getTotalScore()) {
+            return player1.getName();
+        } else if (player2.getTotalScore() > player1.getTotalScore()) {
+            return player2.getName();
+        } else {
+            return "Draw!";
+        }
+    }
 
     public void addReroll() {
         rerolls++;
     }
-    
+
     public int checkRerolls() {
         return rerolls;
     }
-    
+
     public void resetRerolls() {
         rerolls = 0;
+    }
+
+    public Human returnPlayerOne() {
+        return player1;
+    }
+
+    public Human returnPlayerTwo() {
+        return player2;
     }
 }

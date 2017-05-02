@@ -15,17 +15,18 @@ import yatzy.logic.player.*;
  */
 public class DoneRollingListener implements ActionListener {
 
-    private JTextArea die1;
-    private JTextArea die2;
-    private JTextArea die3;
-    private JTextArea die4;
-    private JTextArea die5;
-    private ArrayList<Dice> dice;
-    private Game game;
-    private Score score;
-    private Human player;
+    private JLabel die1;
+    private JLabel die2;
+    private JLabel die3;
+    private JLabel die4;
+    private JLabel die5;
+    public ArrayList<Dice> dice;
+    public Game game;
+    public Score score;
+    public Human player1, player2;
+    public JButton rerollButton;
 
-    public DoneRollingListener(JTextArea die1, JTextArea die2, JTextArea die3, JTextArea die4, JTextArea die5, ArrayList<Dice> dice, Game game, Score score, Human player) {
+    public DoneRollingListener(JLabel die1, JLabel die2, JLabel die3, JLabel die4, JLabel die5, ArrayList<Dice> dice, Game game, Score score, Human player1, Human player2, JButton rerollButton) {
         this.die1 = die1;
         this.die2 = die2;
         this.die3 = die3;
@@ -34,7 +35,9 @@ public class DoneRollingListener implements ActionListener {
         this.dice = dice;
         this.game = game;
         this.score = score;
-        this.player = player;
+        this.player1 = player1;
+        this.player2 = player2;
+        this.rerollButton = rerollButton;
     }
 
     @Override
@@ -53,8 +56,9 @@ public class DoneRollingListener implements ActionListener {
             die4.setText("" + dice.get(3).getValue());
             die5.setText("" + dice.get(4).getValue());
             game.resetRerolls();
-            ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player, dice);
-            SwingUtilities.invokeLater(gui);
+            ScoringScreenGUI scoringGui = new ScoringScreenGUI(game, score, player1, player2, dice);
+            SwingUtilities.invokeLater(scoringGui);
+            rerollButton.setEnabled(true);
         }
     }
 }

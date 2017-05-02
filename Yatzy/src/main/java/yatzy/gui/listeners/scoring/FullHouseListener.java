@@ -10,14 +10,14 @@ import yatzy.logic.scoring.Score;
  *
  * @author Roni
  */
-public class PairListener implements ActionListener {
+public class FullHouseListener implements ActionListener {
 
     public Game game;
     public Score score;
     public Human player;
     public JFrame frame;
     
-    public PairListener(Game game, Score score, Human player, JFrame frame) {
+    public FullHouseListener(Game game, Score score, Human player, JFrame frame) {
         this.game = game;
         this.score = score;
         this.player = player;
@@ -26,7 +26,7 @@ public class PairListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        score.counting(player, game, 6);
+        score.counting(player, game, 2);
         game.changeTurn();
         frame.dispose();
     }

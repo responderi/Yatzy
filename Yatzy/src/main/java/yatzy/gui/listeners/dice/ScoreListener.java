@@ -22,13 +22,13 @@ public class ScoreListener implements ActionListener {
     private JButton die3;
     private JButton die4;
     private JButton die5;
-    private Score score;
-    private Game game;
-    private Human player;
+    public Score score;
+    public Game game;
+    public Human player1, player2;
     private JButton doneRolling;
-    private ArrayList<Dice> dice;
+    public ArrayList<Dice> dice;
 
-    public ScoreListener(JButton scoreButton, JButton rerollButton, JButton die1, JButton die2, JButton die3, JButton die4, JButton die5, Score score, Game game, Human player, JButton doneRolling, ArrayList<Dice> dice) {
+    public ScoreListener(JButton scoreButton, JButton rerollButton, JButton die1, JButton die2, JButton die3, JButton die4, JButton die5, Score score, Game game, Human player1, Human player2, JButton doneRolling, ArrayList<Dice> dice) {
         this.scoreButton = scoreButton;
         this.rerollButton = rerollButton;
         this.die1 = die1;
@@ -38,7 +38,8 @@ public class ScoreListener implements ActionListener {
         this.die5 = die5;
         this.score = score;
         this.game = game;
-        this.player = player;
+        this.player1 = player1;
+        this.player2 = player2;
         this.doneRolling = doneRolling;
         this.dice = dice;
     }
@@ -56,7 +57,7 @@ public class ScoreListener implements ActionListener {
         die3.setEnabled(false);
         die4.setEnabled(false);
         die5.setEnabled(false);
-        ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player, dice);
+        ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player1, player2, dice);
         SwingUtilities.invokeLater(gui);
         rerollButton.setEnabled(true);
         scoreButton.setEnabled(true);
