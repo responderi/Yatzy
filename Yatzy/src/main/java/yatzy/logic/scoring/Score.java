@@ -1,10 +1,5 @@
 package yatzy.logic.scoring;
 
-import java.util.*;
-import javax.swing.SwingUtilities;
-import yatzy.gui.GameScreenGUI;
-import yatzy.gui.ScoringScreenGUI;
-import yatzy.logic.dice.Dice;
 import yatzy.logic.player.Human;
 import yatzy.logic.game.*;
 
@@ -19,7 +14,6 @@ public class Score {
     private int[] count;
     private int firstIndex;
     private int secondIndex;
-    private Scanner scanner = new Scanner(System.in);
 
     /**
      * Constructor for scores.
@@ -128,7 +122,7 @@ public class Score {
             case 6:
                 //CURRENTLY THERE IS A BUG INVOLVING A PAIR WITH ONES.
                 if (count[firstIndex] == 2) {
-                    if ((count[secondIndex] == 2) && (count[secondIndex] > count[firstIndex])) {
+                    if ((count[secondIndex] == 2) && ((secondIndex + 1) > (firstIndex + 1))) {
                         points = 2 * (secondIndex + 1);
                         player.setScore(5, points);
                         game.checkIfLastTurn();

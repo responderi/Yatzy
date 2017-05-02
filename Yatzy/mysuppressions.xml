@@ -6,5 +6,23 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="StartGameGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="GameScreenGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ScoringScreenGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="EndScreenGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DiceFiveListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DiceFourListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DiceOneListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DiceThreeListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DiceTwoListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DoneRollingListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="RerollListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ScoreListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="EndListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Fourslistener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="FullHouseListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PairListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="SumListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ThreesListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="TwoPairListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="YatzyListener.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

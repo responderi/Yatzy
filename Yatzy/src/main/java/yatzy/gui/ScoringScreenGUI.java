@@ -75,6 +75,13 @@ public class ScoringScreenGUI implements Runnable {
         fullHouseButton.addActionListener(fullHouseListener);
         sumButton.addActionListener(sumListener);
         yatzyButton.addActionListener(yatzyListener);
+        checkIfScored(pairButton, 5);
+        checkIfScored(twoPairsButton, 4);
+        checkIfScored(threesButton, 3);
+        checkIfScored(foursButton, 2);
+        checkIfScored(fullHouseButton, 1);
+        checkIfScored(sumButton, 6);
+        checkIfScored(yatzyButton, 0);
         panel.add(pairButton);
         panel.add(pairText);
         panel.add(twoPairsButton);
@@ -94,6 +101,12 @@ public class ScoringScreenGUI implements Runnable {
 
     public JFrame getFrame() {
         return frame;
+    }
+    
+    public void checkIfScored(JButton button, int index) {
+        if (game.playerInTurn().getScore(index) != -1) {
+            button.setEnabled(false);
+        }
     }
     
 }

@@ -36,11 +36,9 @@
                 <configuration>
                     <targetClasses>
                         <param>yatzy.logic.*</param>
-                        <param>yatzy.ai.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>yatzy.logic.*</param>
-                        <param>yatzy.ai.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -19,7 +19,6 @@ public class Game {
     /**
      * Instances of players and the array of dice.
      */
-    private Scanner scanner = new Scanner(System.in);
     public Human player1;
     public Human player2;
     public Human playerInTurn;
@@ -46,11 +45,6 @@ public class Game {
         initializeDice();
     }
 
-    /**
-     * Method initializes the dice.
-     *
-     * @see yatzy.logic.dice.Dice
-     */
     public void initializeDice() {
         Dice dieFirst = new Dice(1);
         Dice dieSecond = new Dice(2);
@@ -64,55 +58,21 @@ public class Game {
         dice.add(dieFifth);
     }
 
-
-    /**
-     * Method rerolls a die.
-     *
-     * @param dieId Die to be rolled
-     *
-     * @see yatzy.logic.dice.Dice
-     */
     public void rerollDie(int dieId) {
         dice.get(dieId - 1).roll();
     }
 
-    /**
-     * Method rerolls the dice.
-     *
-     * @see yatzy.logic.dice.Dice
-     */
     public void rerollDice() {
         for (int i = 0; i < 5; i++) {
             dice.get(i).roll();
         }
     }
-
-    /**
-     * Method prints dice values.
-     *
-     * @see yatzy.logic.dice.Dice
-     */
-    public void printDiceValues() {
-        for (int i = 0; i < 5; i++) {
-            System.out.print(dice.get(i).getValue() + " ");
-        }
-        System.out.print("\n");
-    }
-
-    public void printHighScore() {
-        HighScore highScore = new HighScore();
-        highScore.readHighScore();
-    }
-
-    public void setNewHighScore(HighScore highScore) throws Exception {
-        highScore.writeNewHighScore(player1.getTotalScore());
-    }
-
+    
     public void changeTurn() {
         if (playerInTurn == player1) {
-            playerInTurn = player2;
+            playerInTurn = returnPlayerTwo();
         } else {
-            playerInTurn = player1;
+            playerInTurn = returnPlayerOne();
         }
     }
 
@@ -120,14 +80,6 @@ public class Game {
         return playerInTurn;
     }
 
-    /**
-     * Following method is the game engine, which keeps track of turns.
-     *
-     * @throws java.lang.Exception Throws exception if cant find file for
-     * highscore.
-     * @see yatzy.logic.dice.Dice
-     * @see yatzy.logic.player.Human
-     */
     public void playTurn() {
         turn++;
     }

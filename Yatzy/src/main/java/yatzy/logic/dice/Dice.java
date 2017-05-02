@@ -32,9 +32,6 @@ public class Dice {
         return this.id;
     }
 
-    /**
-     * Following method rolls a die.
-     */
     public void roll() {
         this.value = (int) (6.0 * Math.random()) + 1;
     }

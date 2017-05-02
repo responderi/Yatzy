@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import yatzy.logic.dice.Dice;
+import yatzy.logic.player.Human;
 import yatzy.logic.scoring.*;
 
 /**
@@ -19,17 +21,25 @@ public class GameTest {
     }
 
     Game testGame;
+    Game testGameForPlayers;
     Score testScore;
+    Human testPlayer1;
+    Human testPlayer2;
+    Human player1;
+    Human player2;
+    ArrayList<Dice> testDice;
 
     @Before
     public void setUp() {
+        testPlayer1 = new Human("player1");
+        testPlayer2 = new Human("player2");
         testScore = new Score();
-        testGame = new Game(testScore);
+        testDice = new ArrayList<>();
+        testGame = new Game(testScore, testPlayer1, testPlayer2, testDice);
     }
 
     @Test
-    public void initializeDiceWorksCorrectly() {
-        testGame.initializeDice();
+    public void constructorAndInitializeDiceWorksCorrectly() {
         for (int i = 0; i < 5; i++) {
             assertEquals(testGame.dice.get(i).getValue(), 1);
         }
@@ -37,7 +47,6 @@ public class GameTest {
 
     @Test
     public void rerollDieRollsJustOneDie() {
-        testGame.initializeDice();
         for (int i = 0; i < 5; i++) {
             testGame.dice.get(i).setValue(0);
         }
@@ -47,10 +56,9 @@ public class GameTest {
             assertEquals(testGame.dice.get(i).getValue(), 0);
         }
     }
-    
+
     @Test
     public void rerollDiceRollsEveryDice() {
-        testGame.initializeDice();
         for (int i = 0; i < 5; i++) {
             testGame.dice.get(i).setValue(0);
         }
@@ -59,5 +67,75 @@ public class GameTest {
             assertFalse(testGame.dice.get(i).getValue() == 0);
         }
     }
-
+    
+    @Test
+    public void changeTurnSwitchesActivePlayer() {
+        testGame.changeTurn();
+        assertEquals(testGame.playerInTurn(), testPlayer2);
+    }
+    
+    @Test
+    public void changeTurnSwitchesActivePlayerAlternative() {
+        testGame.playerInTurn = testPlayer2;
+        testGame.changeTurn();
+        assertEquals(testGame.playerInTurn(), testPlayer1);
+    }
+    
+    @Test
+    public void playTurnAddsTurnCorrectly() {
+        testGame.playTurn();
+        assertEquals(testGame.turn, 1);
+    }
+    
+    @Test
+    public void winnerGivesDrawWhenEvenPoints() {
+        assertEquals(testGame.winner(), "Draw!");
+    }
+    
+    @Test
+    public void winnerGivesPlayer1AsWinner() {
+        testPlayer1.setScore(0, 50);
+        assertEquals(testGame.winner(), testPlayer1.getName());
+    }
+    
+    @Test
+    public void winnerGivesPlayer2AsWinner() {
+        testPlayer2.setScore(0, 50);
+        assertEquals(testGame.winner(), testPlayer2.getName());
+    }
+    
+    @Test
+    public void addRerollAddsRollCorrectly() {
+        testGame.addReroll();
+        testGame.addReroll();
+        assertEquals(testGame.rerolls, 2);
+    }
+    
+    @Test
+    public void resetRerollsSetsZeroAsValue() {
+        testGame.addReroll();
+        testGame.addReroll();
+        testGame.addReroll();
+        testGame.resetRerolls();
+        assertEquals(testGame.rerolls, 0);
+    }
+    
+    @Test
+    public void checkRerollsReturnsCorrectValue() {
+        testGame.addReroll();
+        testGame.addReroll();
+        testGame.addReroll();
+        testGame.addReroll();
+        assertEquals(testGame.checkRerolls(), 4);
+    }
+    
+    @Test
+    public void returnPlayerOneReturnsCorrectPlayer() {
+        assertEquals(testGame.returnPlayerOne(), testPlayer1);
+    }
+    
+    @Test
+    public void returnPlayerTwoReturnsCorrectPlayer() {
+        assertEquals(testGame.returnPlayerTwo(), testPlayer2);
+    }
 }
