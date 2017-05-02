@@ -25,8 +25,9 @@ public class DoneRollingListener implements ActionListener {
     public Score score;
     public Human player1, player2;
     public JButton rerollButton;
+    public JButton die1Button, die2Button, die3Button, die4Button, die5Button, doneRolling, scoreButton;
 
-    public DoneRollingListener(JLabel die1, JLabel die2, JLabel die3, JLabel die4, JLabel die5, ArrayList<Dice> dice, Game game, Score score, Human player1, Human player2, JButton rerollButton) {
+    public DoneRollingListener(JLabel die1, JLabel die2, JLabel die3, JLabel die4, JLabel die5, ArrayList<Dice> dice, Game game, Score score, Human player1, Human player2, JButton rerollButton, JButton die1Button, JButton die2Button, JButton die3Button, JButton die4Button, JButton die5Button, JButton doneRolling, JButton scoreButton) {
         this.die1 = die1;
         this.die2 = die2;
         this.die3 = die3;
@@ -38,6 +39,13 @@ public class DoneRollingListener implements ActionListener {
         this.player1 = player1;
         this.player2 = player2;
         this.rerollButton = rerollButton;
+        this.die1Button = die1Button;
+        this.die2Button = die2Button;
+        this.die3Button = die3Button;
+        this.die4Button = die4Button;
+        this.die5Button = die5Button;
+        this.doneRolling = doneRolling;
+        this.scoreButton = scoreButton;
     }
 
     @Override
@@ -56,6 +64,13 @@ public class DoneRollingListener implements ActionListener {
             die4.setText("" + dice.get(3).getValue());
             die5.setText("" + dice.get(4).getValue());
             game.resetRerolls();
+            die1Button.setEnabled(false);
+            die2Button.setEnabled(false);
+            die3Button.setEnabled(false);
+            die4Button.setEnabled(false);
+            die5Button.setEnabled(false);
+            doneRolling.setEnabled(false);
+            scoreButton.setEnabled(false);
             ScoringScreenGUI scoringGui = new ScoringScreenGUI(game, score, player1, player2, dice);
             SwingUtilities.invokeLater(scoringGui);
             rerollButton.setEnabled(true);

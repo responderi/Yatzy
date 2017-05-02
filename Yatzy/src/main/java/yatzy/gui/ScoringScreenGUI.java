@@ -35,13 +35,13 @@ public class ScoringScreenGUI implements Runnable {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoKomponentit(frame.getContentPane());
+        createComponents(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
     }
 
-    private void luoKomponentit(Container container) {
+    private void createComponents(Container container) {
         container.add(scoringMenu());
     }
 
@@ -95,4 +95,5 @@ public class ScoringScreenGUI implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
+    
 }

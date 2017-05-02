@@ -70,9 +70,11 @@ public class Score {
             case 1:
                 if (count[firstIndex] == 5) {
                     player.setScore(0, 50);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(0, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
 
@@ -80,9 +82,11 @@ public class Score {
                 if (count[firstIndex] == 3 && count[secondIndex] == 2) {
                     points = 3 * (firstIndex + 1) + 2 * (secondIndex + 1);
                     player.setScore(1, points);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(1, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
 
@@ -90,18 +94,22 @@ public class Score {
                 if (count[firstIndex] == 4) {
                     points = 4 * (firstIndex + 1);
                     player.setScore(2, points);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(2, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
             case 4:
                 if (count[firstIndex] == 3) {
                     points = 3 * (firstIndex + 1);
                     player.setScore(3, points);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(3, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
             case 5:
@@ -109,9 +117,11 @@ public class Score {
                 if (count[firstIndex] == 2 && count[secondIndex] == 2) {
                     points = 2 * (firstIndex + 1) + 2 * (secondIndex + 1);
                     player.setScore(4, points);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(4, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
 
@@ -121,13 +131,16 @@ public class Score {
                     if ((count[secondIndex] == 2) && (count[secondIndex] > count[firstIndex])) {
                         points = 2 * (secondIndex + 1);
                         player.setScore(5, points);
+                        game.checkIfLastTurn();
                         break;
                     }
                     points = 2 * (firstIndex + 1);
                     player.setScore(5, points);
+                    game.checkIfLastTurn();
                     break;
                 } else {
                     player.setScore(5, 0);
+                    game.checkIfLastTurn();
                     break;
                 }
             case 7:
@@ -136,6 +149,7 @@ public class Score {
                     points += game.dice.get(i).getValue();
                 }
                 player.setScore(6, points);
+                game.checkIfLastTurn();
                 break;
 
             default:

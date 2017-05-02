@@ -45,21 +45,18 @@ public class EndScreenGUI implements Runnable {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoKomponentit(frame.getContentPane());
+        createComponents(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
     }
 
-    private void luoKomponentit(Container container) {
+    private void createComponents(Container container) {
         container.add(resultMenu());
-        JButton exitButton = new JButton("Exit");
-        EndListener endGame = new EndListener();
-        exitButton.addActionListener(endGame);
     }
 
     private JPanel resultMenu() {
-        JPanel panel = new JPanel(new GridLayout(3,3));
+        JPanel panel = new JPanel(new GridLayout(3, 3));
         JLabel playersText = new JLabel("Players:");
         JLabel player1Text = new JLabel("" + player1.getName());
         JLabel player2Text = new JLabel("" + player2.getName());
@@ -68,7 +65,9 @@ public class EndScreenGUI implements Runnable {
         JLabel player2Total = new JLabel("" + player2.getTotalScore());
         JLabel winner = new JLabel("Winner:");
         JLabel gameWinner = new JLabel("" + game.winner());
-        JLabel empty = new JLabel("");
+        JButton exitButton = new JButton("Exit");
+        EndListener endGame = new EndListener();
+        exitButton.addActionListener(endGame);
         panel.add(playersText);
         panel.add(player1Text);
         panel.add(player2Text);
@@ -77,7 +76,7 @@ public class EndScreenGUI implements Runnable {
         panel.add(player2Total);
         panel.add(winner);
         panel.add(gameWinner);
-        panel.add(empty);
+        panel.add(exitButton);
         return panel;
     }
 
