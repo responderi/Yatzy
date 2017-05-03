@@ -8,6 +8,7 @@
 <suppressions>
     <suppress files="GameScreenGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ScoringScreenGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="InfoScreenGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="EndScreenGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="DiceFiveListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="DiceFourListener.java" checks="[a-zA-Z0-9]*"/>
@@ -18,11 +19,18 @@
     <suppress files="RerollListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ScoreListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="EndListener.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="Fourslistener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="InfoListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="FoursListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="FullHouseListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="PairListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="SumListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ThreesListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="TwoPairListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="YatzyListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="OnesUpperListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="TwosUpperListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ThreesUpperListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="FoursUpperListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="FivesUpperListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="SixesUpperListener.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

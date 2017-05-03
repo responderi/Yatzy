@@ -1,0 +1,9 @@
+yatzy.gui
+yatzy.gui.listeners.dice
+yatzy.gui.listeners.end
+yatzy.gui.listeners.info
+yatzy.gui.listeners.scoring
+yatzy.logic.dice
+yatzy.logic.game
+yatzy.logic.player
+yatzy.logic.scoring

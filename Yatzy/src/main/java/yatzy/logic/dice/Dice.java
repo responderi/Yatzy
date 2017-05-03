@@ -32,6 +32,9 @@ public class Dice {
         return this.id;
     }
 
+    /**
+     * Following method randomizes a value for a die.
+     */
     public void roll() {
         this.value = (int) (6.0 * Math.random()) + 1;
     }

@@ -90,5 +90,49 @@ public class HumanTest {
         testHuman.setScore(6, 20);
         assertEquals(testHuman.getTotalScore(), 128);
     }
+    
+    @Test
+    public void getUpperSectionScoreWithBonus() {
+        testHuman.setScore(7, 6);
+        testHuman.setScore(8, 6);
+        testHuman.setScore(9, 9);
+        testHuman.setScore(10, 12);
+        testHuman.setScore(11, 15);
+        testHuman.setScore(12, 18);
+        assertEquals(testHuman.getUpperSectionScore(), 116);
+    }
+    
+    @Test
+    public void getUpperSectionScoreWithoutBonus() {
+        testHuman.setScore(7, 6);
+        testHuman.setScore(8, 6);
+        testHuman.setScore(9, 9);
+        testHuman.setScore(10, 12);
+        testHuman.setScore(11, 15);
+        testHuman.setScore(12, 12);
+        assertEquals(testHuman.getUpperSectionScore(), 60);
+    }
+    
+    @Test
+    public void upperSectionScoreWithBonus() {
+        testHuman.setScore(7, 6);
+        testHuman.setScore(8, 6);
+        testHuman.setScore(9, 9);
+        testHuman.setScore(10, 12);
+        testHuman.setScore(11, 15);
+        testHuman.setScore(12, 18);
+        assertEquals(testHuman.upperSectionBonus(), 50);
+    }
+    
+    @Test
+    public void upperSectionScoreWithoutBonus() {
+        testHuman.setScore(7, 6);
+        testHuman.setScore(8, 6);
+        testHuman.setScore(9, 9);
+        testHuman.setScore(10, 12);
+        testHuman.setScore(11, 15);
+        testHuman.setScore(12, 12);
+        assertEquals(testHuman.upperSectionBonus(), 0);
+    }
 
 }

@@ -197,4 +197,69 @@ public class ScoreTest {
         assertEquals(testPlayer1.getScore(0), 0);
     }
     
+    @Test
+    public void countingScoresOnes() {
+        testGame.dice.get(0).setValue(1);
+        testGame.dice.get(1).setValue(1);
+        testGame.dice.get(2).setValue(1);
+        testGame.dice.get(3).setValue(1);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 8);
+        assertEquals(testPlayer1.getScore(7), 4);
+    }
+    
+    @Test
+    public void countingScoresTwos() {
+        testGame.dice.get(0).setValue(2);
+        testGame.dice.get(1).setValue(2);
+        testGame.dice.get(2).setValue(2);
+        testGame.dice.get(3).setValue(5);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 9);
+        assertEquals(testPlayer1.getScore(8), 6);
+    }
+    
+    @Test
+    public void countingScoresThreesUp() {
+        testGame.dice.get(0).setValue(3);
+        testGame.dice.get(1).setValue(3);
+        testGame.dice.get(2).setValue(5);
+        testGame.dice.get(3).setValue(5);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 10);
+        assertEquals(testPlayer1.getScore(9), 6);
+    }
+    
+    @Test
+    public void countingScoresFoursUp() {
+        testGame.dice.get(0).setValue(4);
+        testGame.dice.get(1).setValue(5);
+        testGame.dice.get(2).setValue(5);
+        testGame.dice.get(3).setValue(5);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 11);
+        assertEquals(testPlayer1.getScore(10), 4);
+    }
+    
+    @Test
+    public void countingScoresFives() {
+        testGame.dice.get(0).setValue(5);
+        testGame.dice.get(1).setValue(5);
+        testGame.dice.get(2).setValue(5);
+        testGame.dice.get(3).setValue(5);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 12);
+        assertEquals(testPlayer1.getScore(11), 20);
+    }
+    
+    @Test
+    public void countingScoresSixes() {
+        testGame.dice.get(0).setValue(5);
+        testGame.dice.get(1).setValue(5);
+        testGame.dice.get(2).setValue(5);
+        testGame.dice.get(3).setValue(5);
+        testGame.dice.get(4).setValue(6);
+        testScore.counting(testPlayer1, testGame, 13);
+        assertEquals(testPlayer1.getScore(12), 6);
+    }
 }

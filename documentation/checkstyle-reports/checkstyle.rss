@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 8,
+      <title>File: 33,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#yatzy.logic.scoring.HighScore.java">yatzy/logic/scoring/HighScore.java</a>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.ScoreListener.java">yatzy/gui/listeners/dice/ScoreListener.java</a>
                 </td>
                 <td>
                   0
@@ -88,6 +88,76 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.RerollListener.java">yatzy/gui/listeners/dice/RerollListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.logic.player.Player.java">yatzy/logic/player/Player.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.FoursUpperListener.java">yatzy/gui/listeners/scoring/FoursUpperListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.TwoPairListener.java">yatzy/gui/listeners/scoring/TwoPairListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DiceFiveListener.java">yatzy/gui/listeners/dice/DiceFiveListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#yatzy.logic.game.Game.java">yatzy/logic/game/Game.java</a>
                 </td>
                 <td>
@@ -102,7 +172,259 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#yatzy.gui.StartGameGUI.java">yatzy/gui/StartGameGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DoneRollingListener.java">yatzy/gui/listeners/dice/DoneRollingListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.PairListener.java">yatzy/gui/listeners/scoring/PairListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.FivesUpperListener.java">yatzy/gui/listeners/scoring/FivesUpperListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.YatzyListener.java">yatzy/gui/listeners/scoring/YatzyListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.info.InfoListener.java">yatzy/gui/listeners/info/InfoListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.GameScreenGUI.java">yatzy/gui/GameScreenGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DiceTwoListener.java">yatzy/gui/listeners/dice/DiceTwoListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.FullHouseListener.java">yatzy/gui/listeners/scoring/FullHouseListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.SumListener.java">yatzy/gui/listeners/scoring/SumListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DiceFourListener.java">yatzy/gui/listeners/dice/DiceFourListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.SixesUpperListener.java">yatzy/gui/listeners/scoring/SixesUpperListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.TwosUpperListener.java">yatzy/gui/listeners/scoring/TwosUpperListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.InfoScreenGUI.java">yatzy/gui/InfoScreenGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.ThreesUpperListener.java">yatzy/gui/listeners/scoring/ThreesUpperListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.end.EndListener.java">yatzy/gui/listeners/end/EndListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.ScoringScreenGUI.java">yatzy/gui/ScoringScreenGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DiceOneListener.java">yatzy/gui/listeners/dice/DiceOneListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.ThreesListener.java">yatzy/gui/listeners/scoring/ThreesListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.FoursListener.java">yatzy/gui/listeners/scoring/FoursListener.java</a>
                 </td>
                 <td>
                   0
@@ -130,6 +452,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.EndScreenGUI.java">yatzy/gui/EndScreenGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#yatzy.logic.dice.Dice.java">yatzy/logic/dice/Dice.java</a>
                 </td>
                 <td>
@@ -144,7 +480,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#yatzy.logic.player.Player.java">yatzy/logic/player/Player.java</a>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.dice.DiceThreeListener.java">yatzy/gui/listeners/dice/DiceThreeListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#yatzy.gui.listeners.scoring.OnesUpperListener.java">yatzy/gui/listeners/scoring/OnesUpperListener.java</a>
                 </td>
                 <td>
                   0

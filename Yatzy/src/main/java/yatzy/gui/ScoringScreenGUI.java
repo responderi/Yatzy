@@ -31,7 +31,7 @@ public class ScoringScreenGUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Yatzy - Scoring");
-        frame.setPreferredSize(new Dimension(250, 300));
+        frame.setPreferredSize(new Dimension(250, 500));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +46,13 @@ public class ScoringScreenGUI implements Runnable {
     }
 
     private JPanel scoringMenu() {
-        JPanel panel = new JPanel(new GridLayout(7, 2));        
+        JPanel panel = new JPanel(new GridLayout(13, 2));
+        JButton oneButton = new JButton("Score");
+        JButton twoButton = new JButton("Score");
+        JButton threeButton = new JButton("Score");
+        JButton fourButton = new JButton("Score");
+        JButton fiveButton = new JButton("Score");
+        JButton sixButton = new JButton("Score");
         JButton pairButton = new JButton("Score");
         JButton twoPairsButton = new JButton("Score");
         JButton threesButton = new JButton("Score");
@@ -54,6 +60,12 @@ public class ScoringScreenGUI implements Runnable {
         JButton fullHouseButton = new JButton("Score");
         JButton sumButton = new JButton("Score");
         JButton yatzyButton = new JButton("Score");
+        JLabel oneText = new JLabel("Ones");
+        JLabel twoText = new JLabel("Twos");
+        JLabel threeText = new JLabel("Threes");
+        JLabel fourText = new JLabel("Fours");
+        JLabel fiveText = new JLabel("Fives");
+        JLabel sixText = new JLabel("Sixes");
         JLabel pairText = new JLabel("A pair");
         JLabel twoPairsText = new JLabel("Two pairs");
         JLabel threesText = new JLabel("Three of a kind");
@@ -61,6 +73,12 @@ public class ScoringScreenGUI implements Runnable {
         JLabel fullHouseText = new JLabel("Full House");
         JLabel sumText = new JLabel("Sum");
         JLabel yatzyText = new JLabel("Yatzy");
+        OnesUpperListener oneListener = new OnesUpperListener(game, score, game.playerInTurn(), frame);
+        TwosUpperListener twoListener = new TwosUpperListener(game, score, game.playerInTurn(), frame);
+        ThreesUpperListener threeListener = new ThreesUpperListener(game, score, game.playerInTurn(), frame);
+        FoursUpperListener fourListener = new FoursUpperListener(game, score, game.playerInTurn(), frame);
+        FivesUpperListener fiveListener = new FivesUpperListener(game, score, game.playerInTurn(), frame);
+        SixesUpperListener sixListener = new SixesUpperListener(game, score, game.playerInTurn(), frame);
         PairListener pairListener = new PairListener(game, score, game.playerInTurn(), frame);
         TwoPairListener twoPairListener = new TwoPairListener(game, score, game.playerInTurn(), frame);
         ThreesListener threesListener = new ThreesListener(game, score, game.playerInTurn(), frame);
@@ -68,6 +86,12 @@ public class ScoringScreenGUI implements Runnable {
         FullHouseListener fullHouseListener = new FullHouseListener(game, score, game.playerInTurn(), frame);
         SumListener sumListener = new SumListener(game, score, game.playerInTurn(), frame);
         YatzyListener yatzyListener = new YatzyListener(game, score, game.playerInTurn(), frame);
+        oneButton.addActionListener(oneListener);
+        twoButton.addActionListener(twoListener);
+        threeButton.addActionListener(threeListener);
+        fourButton.addActionListener(fourListener);
+        fiveButton.addActionListener(fiveListener);
+        sixButton.addActionListener(sixListener);
         pairButton.addActionListener(pairListener);
         twoPairsButton.addActionListener(twoPairListener);
         threesButton.addActionListener(threesListener);
@@ -75,6 +99,12 @@ public class ScoringScreenGUI implements Runnable {
         fullHouseButton.addActionListener(fullHouseListener);
         sumButton.addActionListener(sumListener);
         yatzyButton.addActionListener(yatzyListener);
+        checkIfScored(oneButton, 7);
+        checkIfScored(twoButton, 8);
+        checkIfScored(threeButton, 9);
+        checkIfScored(fourButton, 10);
+        checkIfScored(fiveButton, 11);
+        checkIfScored(sixButton, 12);
         checkIfScored(pairButton, 5);
         checkIfScored(twoPairsButton, 4);
         checkIfScored(threesButton, 3);
@@ -82,6 +112,18 @@ public class ScoringScreenGUI implements Runnable {
         checkIfScored(fullHouseButton, 1);
         checkIfScored(sumButton, 6);
         checkIfScored(yatzyButton, 0);
+        panel.add(oneButton);
+        panel.add(oneText);
+        panel.add(twoButton);
+        panel.add(twoText);
+        panel.add(threeButton);
+        panel.add(threeText);
+        panel.add(fourButton);
+        panel.add(fourText);
+        panel.add(fiveButton);
+        panel.add(fiveText);
+        panel.add(sixButton);
+        panel.add(sixText);
         panel.add(pairButton);
         panel.add(pairText);
         panel.add(twoPairsButton);

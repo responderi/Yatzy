@@ -40,7 +40,7 @@ public class GameScreenGUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Yatzy");
-        frame.setPreferredSize(new Dimension(400, 300));
+        frame.setPreferredSize(new Dimension(525, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,13 +48,39 @@ public class GameScreenGUI implements Runnable {
 
         frame.pack();
         frame.setVisible(true);
+        InfoScreenGUI info = new InfoScreenGUI();
+        SwingUtilities.invokeLater(info);
     }
 
     private void createComponents(Container container) {
-        JPanel panelStats = new JPanel(new GridLayout(9, 3));
-        JLabel empty = new JLabel("");
+        JPanel panelStats = new JPanel(new GridLayout(17, 3));
+        JLabel inTurn = new JLabel("" + game.playerInTurn().getName());
         JLabel player1Text = new JLabel("Player 1");
         JLabel player2Text = new JLabel("Player 2");
+        JLabel ones = new JLabel("1");
+        JLabel player1Ones = new JLabel("0");
+        JLabel player2Ones = new JLabel("0");
+        JLabel twos = new JLabel("2");
+        JLabel player1Twos = new JLabel("0");
+        JLabel player2Twos = new JLabel("0");
+        JLabel threes = new JLabel("3");
+        JLabel player1ThreesUp = new JLabel("0");
+        JLabel player2ThreesUp = new JLabel("0");
+        JLabel fours = new JLabel("4");
+        JLabel player1FoursUp = new JLabel("0");
+        JLabel player2FoursUp = new JLabel("0");
+        JLabel fives = new JLabel("5");
+        JLabel player1Fives = new JLabel("0");
+        JLabel player2Fives = new JLabel("0");
+        JLabel sixes = new JLabel("6");
+        JLabel player1Sixes = new JLabel("0");
+        JLabel player2Sixes = new JLabel("0");
+        JLabel bonus = new JLabel("Bonus (63 requird)");
+        JLabel player1Bonus = new JLabel("0");
+        JLabel player2Bonus = new JLabel("0");
+        JLabel upperTotal = new JLabel("Upper score:");
+        JLabel player1Upper = new JLabel("0");
+        JLabel player2Upper = new JLabel("0");
         JLabel pairText = new JLabel("A pair");
         JLabel twoPairsText = new JLabel("Two pairs");
         JLabel threesText = new JLabel("Three of a kind");
@@ -79,9 +105,33 @@ public class GameScreenGUI implements Runnable {
         JLabel player2Yatzy = new JLabel("0");
         JLabel player1Total = new JLabel("" + player1.getTotalScore());
         JLabel player2Total = new JLabel("" + player2.getTotalScore());
-        panelStats.add(empty);
+        panelStats.add(inTurn);
         panelStats.add(player1Text);
         panelStats.add(player2Text);
+        panelStats.add(ones);
+        panelStats.add(player1Ones);
+        panelStats.add(player2Ones);
+        panelStats.add(twos);
+        panelStats.add(player1Twos);
+        panelStats.add(player2Twos);
+        panelStats.add(threes);
+        panelStats.add(player1ThreesUp);
+        panelStats.add(player2ThreesUp);
+        panelStats.add(fours);
+        panelStats.add(player1FoursUp);
+        panelStats.add(player2FoursUp);
+        panelStats.add(fives);
+        panelStats.add(player1Fives);
+        panelStats.add(player2Fives);
+        panelStats.add(sixes);
+        panelStats.add(player1Sixes);
+        panelStats.add(player2Sixes);
+        panelStats.add(bonus);
+        panelStats.add(player1Bonus);
+        panelStats.add(player2Bonus);
+        panelStats.add(upperTotal);
+        panelStats.add(player1Upper);
+        panelStats.add(player2Upper);
         panelStats.add(pairText);
         panelStats.add(player1Pair);
         panelStats.add(player2Pair);
@@ -119,7 +169,7 @@ public class GameScreenGUI implements Runnable {
         JButton die5 = new JButton("Roll");
         JLabel emptyFirst = new JLabel("");
         JButton rerollButton = new JButton("Reroll");
-        JButton doneRolling = new JButton("Done rolling.");
+        JButton doneRolling = new JButton("Done rolling");
         JButton scoreButton = new JButton("Score");
         JLabel emptyThird = new JLabel("");
         die1.setEnabled(false);
@@ -134,7 +184,7 @@ public class GameScreenGUI implements Runnable {
         DiceThreeListener listener3 = new DiceThreeListener(dice, game);
         DiceFourListener listener4 = new DiceFourListener(dice, game);
         DiceFiveListener listener5 = new DiceFiveListener(dice, game);
-        RerollListener rerollListener = new RerollListener(rerollButton, die1, die2, die3, die4, die5, doneRolling, this, game, dieLabel1, dieLabel2, dieLabel3, dieLabel4, dieLabel5, dice, player1Pair, player2Pair, player1TwoPairs, player2TwoPairs, player1Threes, player2Threes, player1Fours, player2Fours, player1FullHouse, player2FullHouse, player1Sum, player2Sum, player1Yatzy, player2Yatzy, player1Total, player2Total, player1, player2, scoreButton);
+        RerollListener rerollListener = new RerollListener(rerollButton, die1, die2, die3, die4, die5, doneRolling, this, game, dieLabel1, dieLabel2, dieLabel3, dieLabel4, dieLabel5, dice, player1Pair, player2Pair, player1TwoPairs, player2TwoPairs, player1Threes, player2Threes, player1Fours, player2Fours, player1FullHouse, player2FullHouse, player1Sum, player2Sum, player1Yatzy, player2Yatzy, player1Total, player2Total, player1, player2, scoreButton, player1Ones, player2Ones, player1Twos, player2Twos, player1ThreesUp, player2ThreesUp, player1FoursUp, player2FoursUp, player1Fives, player2Fives, player1Sixes, player2Sixes, player1Bonus, player2Bonus, player1Upper, player2Upper, inTurn);
         ScoreListener scoreListener = new ScoreListener(scoreButton, rerollButton, die1, die2, die3, die4, die5, score, game, player1, player2, doneRolling, dice, dieLabel1, dieLabel2, dieLabel3, dieLabel4, dieLabel5);
         DoneRollingListener doneListener = new DoneRollingListener(dieLabel1, dieLabel2, dieLabel3, dieLabel4, dieLabel5, dice, game, score, player1, player2, rerollButton, die1, die2, die3, die4, die5, doneRolling, scoreButton);
         die1.addActionListener(listener1);

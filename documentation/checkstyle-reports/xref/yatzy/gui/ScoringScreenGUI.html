@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi_FI" lang="fi_FI">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ScoringScreenGUI xref</title>
+<link type="text/css" rel="stylesheet" href="../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../apidocs/yatzy/gui/ScoringScreenGUI.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> yatzy.gui;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.BorderLayout;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.awt.Container;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.awt.GridLayout;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.util.ArrayList;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> javax.swing.*;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> yatzy.gui.listeners.scoring.*;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> yatzy.logic.game.*;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> yatzy.logic.scoring.*;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> yatzy.logic.player.*;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> yatzy.logic.dice.*;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a> <strong class="jxr_keyword">implements</strong> Runnable {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      <strong class="jxr_keyword">private</strong> JFrame frame;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      <strong class="jxr_keyword">public</strong> <a href="../../yatzy/logic/game/Game.html">Game</a> game;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">public</strong> <a href="../../yatzy/logic/scoring/Score.html">Score</a> score;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">public</strong> ArrayList&lt;Dice&gt; dice;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">public</strong> <a href="../../yatzy/logic/player/Human.html">Human</a> player1, player2;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <a href="../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a>(<a href="../../yatzy/logic/game/Game.html">Game</a> game, <a href="../../yatzy/logic/scoring/Score.html">Score</a> score, <a href="../../yatzy/logic/player/Human.html">Human</a> player1, <a href="../../yatzy/logic/player/Human.html">Human</a> player2, ArrayList&lt;Dice&gt; dice) {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <strong class="jxr_keyword">this</strong>.game = game;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          <strong class="jxr_keyword">this</strong>.player1 = player1;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">this</strong>.player2 = player2;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">this</strong>.dice = dice;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">this</strong>.score = score;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      }
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      @Override
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          frame = <strong class="jxr_keyword">new</strong> JFrame(<span class="jxr_string">"Yatzy - Scoring"</span>);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(250, 500));
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          createComponents(frame.getContentPane());
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          frame.pack();
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          frame.setVisible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> createComponents(Container container) {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          container.add(scoringMenu());
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> JPanel scoringMenu() {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          JPanel panel = <strong class="jxr_keyword">new</strong> JPanel(<strong class="jxr_keyword">new</strong> GridLayout(13, 2));
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          JButton oneButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          JButton twoButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          JButton threeButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          JButton fourButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          JButton fiveButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          JButton sixButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          JButton pairButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          JButton twoPairsButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          JButton threesButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          JButton foursButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          JButton fullHouseButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          JButton sumButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          JButton yatzyButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Score"</span>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          JLabel oneText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Ones"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          JLabel twoText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Twos"</span>);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          JLabel threeText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Threes"</span>);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          JLabel fourText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Fours"</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          JLabel fiveText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Fives"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          JLabel sixText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Sixes"</span>);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          JLabel pairText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"A pair"</span>);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          JLabel twoPairsText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Two pairs"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          JLabel threesText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Three of a kind"</span>);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          JLabel foursText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Four of a kind"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          JLabel fullHouseText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Full House"</span>);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          JLabel sumText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Sum"</span>);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          JLabel yatzyText = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Yatzy"</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <a href="../../yatzy/gui/listeners/scoring/OnesUpperListener.html">OnesUpperListener</a> oneListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/OnesUpperListener.html">OnesUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <a href="../../yatzy/gui/listeners/scoring/TwosUpperListener.html">TwosUpperListener</a> twoListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/TwosUpperListener.html">TwosUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <a href="../../yatzy/gui/listeners/scoring/ThreesUpperListener.html">ThreesUpperListener</a> threeListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/ThreesUpperListener.html">ThreesUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <a href="../../yatzy/gui/listeners/scoring/FoursUpperListener.html">FoursUpperListener</a> fourListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/FoursUpperListener.html">FoursUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <a href="../../yatzy/gui/listeners/scoring/FivesUpperListener.html">FivesUpperListener</a> fiveListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/FivesUpperListener.html">FivesUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          <a href="../../yatzy/gui/listeners/scoring/SixesUpperListener.html">SixesUpperListener</a> sixListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/SixesUpperListener.html">SixesUpperListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <a href="../../yatzy/gui/listeners/scoring/PairListener.html">PairListener</a> pairListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/PairListener.html">PairListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <a href="../../yatzy/gui/listeners/scoring/TwoPairListener.html">TwoPairListener</a> twoPairListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/TwoPairListener.html">TwoPairListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <a href="../../yatzy/gui/listeners/scoring/ThreesListener.html">ThreesListener</a> threesListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/ThreesListener.html">ThreesListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <a href="../../yatzy/gui/listeners/scoring/FoursListener.html">FoursListener</a> foursListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/FoursListener.html">FoursListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <a href="../../yatzy/gui/listeners/scoring/FullHouseListener.html">FullHouseListener</a> fullHouseListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/FullHouseListener.html">FullHouseListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <a href="../../yatzy/gui/listeners/scoring/SumListener.html">SumListener</a> sumListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/SumListener.html">SumListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <a href="../../yatzy/gui/listeners/scoring/YatzyListener.html">YatzyListener</a> yatzyListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/scoring/YatzyListener.html">YatzyListener</a>(game, score, game.playerInTurn(), frame);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          oneButton.addActionListener(oneListener);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          twoButton.addActionListener(twoListener);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          threeButton.addActionListener(threeListener);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          fourButton.addActionListener(fourListener);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          fiveButton.addActionListener(fiveListener);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          sixButton.addActionListener(sixListener);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          pairButton.addActionListener(pairListener);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          twoPairsButton.addActionListener(twoPairListener);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          threesButton.addActionListener(threesListener);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          foursButton.addActionListener(foursListener);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          fullHouseButton.addActionListener(fullHouseListener);
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         sumButton.addActionListener(sumListener);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         yatzyButton.addActionListener(yatzyListener);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         checkIfScored(oneButton, 7);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         checkIfScored(twoButton, 8);
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         checkIfScored(threeButton, 9);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         checkIfScored(fourButton, 10);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         checkIfScored(fiveButton, 11);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         checkIfScored(sixButton, 12);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         checkIfScored(pairButton, 5);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         checkIfScored(twoPairsButton, 4);
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         checkIfScored(threesButton, 3);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         checkIfScored(foursButton, 2);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         checkIfScored(fullHouseButton, 1);
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         checkIfScored(sumButton, 6);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         checkIfScored(yatzyButton, 0);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         panel.add(oneButton);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         panel.add(oneText);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         panel.add(twoButton);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         panel.add(twoText);
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         panel.add(threeButton);
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         panel.add(threeText);
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         panel.add(fourButton);
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         panel.add(fourText);
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         panel.add(fiveButton);
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         panel.add(fiveText);
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         panel.add(sixButton);
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         panel.add(sixText);
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         panel.add(pairButton);
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         panel.add(pairText);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         panel.add(twoPairsButton);
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>         panel.add(twoPairsText);
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         panel.add(threesButton);
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         panel.add(threesText);
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         panel.add(foursButton);
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>         panel.add(foursText);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>         panel.add(fullHouseButton);
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         panel.add(fullHouseText);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         panel.add(sumButton);
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         panel.add(sumText);
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         panel.add(yatzyButton);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         panel.add(yatzyText);
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>         <strong class="jxr_keyword">return</strong> panel;
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>     }
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>     <strong class="jxr_keyword">public</strong> JFrame getFrame() {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         <strong class="jxr_keyword">return</strong> frame;
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>     }
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>     
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> checkIfScored(JButton button, <strong class="jxr_keyword">int</strong> index) {
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         <strong class="jxr_keyword">if</strong> (game.playerInTurn().getScore(index) != -1) {
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>             button.setEnabled(false);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         }
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>     }
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>     
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>

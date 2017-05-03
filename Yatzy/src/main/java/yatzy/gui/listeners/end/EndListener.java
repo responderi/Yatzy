@@ -2,10 +2,6 @@ package yatzy.gui.listeners.end;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import yatzy.logic.game.Game;
-import yatzy.logic.player.Human;
-import yatzy.logic.scoring.Score;
 
 /**
  *
