@@ -6,4 +6,6 @@ Methods consisting GUIs (Game class' endGame() for example) were tested by numer
 
 There was a bug involving scoring pair or two pairs including dice with value of one. However, after numerous repeats, problem was discovered and the major bug was fixed. Indexes during scoring couldnt be changed correctly because indexes were intialized as zeroes, and die value one was at count array's index zero. This was fixed by moving every cell in array one forward (adding its size by one).
 
+Pure hands-on testing has also resulted another major bug to be found. Before the fix, you could actually end the game before scoring anything, due to 'End turn' button becoming active when scoring starts. Testing showed this and it was fixed by enabling the button after the scoring.
+
 Other bugs has not occurred by the time this is written.
