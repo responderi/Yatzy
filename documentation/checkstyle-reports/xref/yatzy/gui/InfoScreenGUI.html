@@ -30,7 +30,7 @@
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      @Override
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>          frame = <strong class="jxr_keyword">new</strong> JFrame(<span class="jxr_string">"Yatzy - How to play"</span>);
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(590, 300));
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(590, 210));
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  
@@ -47,7 +47,7 @@
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>      <strong class="jxr_keyword">private</strong> JPanel infoMenu() {
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>          JPanel panel = <strong class="jxr_keyword">new</strong> JPanel(<strong class="jxr_keyword">new</strong> GridLayout(2, 1));
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>          JButton infoButton = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Understood!"</span>);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>          JTextArea infoText = <strong class="jxr_keyword">new</strong> JTextArea(<span class="jxr_string">"How to play:\n You will start your turn by pressing 'Reroll' button.\n If you want to reroll some of the dice, reroll them by pressing specific die buttons and then 'Done rolling'.\n If you havent chosen to score earlier, you will be forced to score after two reroll times.\n Scores and player in turn (left to 'Player 1' text) will update always after one's first reroll-button push.\n NOTE! SCORES WILL BE SHOWN AS '-1' IF THE CATEGORY IS NOT SCORED YET!"</span>);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          JTextArea infoText = <strong class="jxr_keyword">new</strong> JTextArea(<span class="jxr_string">"How to play:\n You will start your turn by pressing 'Reroll' button.\n If you want to reroll some of the dice, reroll them by pressing specific die buttons and then 'Done rolling'.\n If you havent chosen to score earlier, you will be forced to score after two reroll times.\n Scores and player in turn (left to 'Player 1' text) will update always after one's first reroll-button push."</span>);
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>          <a href="../../yatzy/gui/listeners/info/InfoListener.html">InfoListener</a> infoListener = <strong class="jxr_keyword">new</strong> <a href="../../yatzy/gui/listeners/info/InfoListener.html">InfoListener</a>(frame);
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>          infoButton.addActionListener(infoListener);
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>          infoText.setEnabled(false);

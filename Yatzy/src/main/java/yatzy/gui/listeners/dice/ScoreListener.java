@@ -58,14 +58,15 @@ public class ScoreListener implements ActionListener {
         die3.setText("" + dice.get(2).getValue());
         die4.setText("" + dice.get(3).getValue());
         die5.setText("" + dice.get(4).getValue());
+        game.resetRerolls();
         die1Button.setEnabled(false);
         die2Button.setEnabled(false);
         die3Button.setEnabled(false);
         die4Button.setEnabled(false);
         die5Button.setEnabled(false);
-        ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player1, player2, dice);
+        doneRolling.setEnabled(false);
+        ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player1, player2, dice, rerollButton);
         SwingUtilities.invokeLater(gui);
         rerollButton.setEnabled(true);
-        doneRolling.setEnabled(false);
     }
 }

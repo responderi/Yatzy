@@ -8,7 +8,7 @@ Yatzy is a dice game, in which you try to score as good score for each given cat
 
 ## Checkstyle and Pit-reports
 * [Checkstyle-report](https://htmlpreview.github.io/?https://github.com/responderi/Yatzy/blob/master/documentation/checkstyle-reports/checkstyle.html)
-* [Pit-report](https://htmlpreview.github.io/?https://github.com/responderi/Yatzy/blob/master/documentation/pit-reports/201705031220/index.html)
+* [Pit-report](https://htmlpreview.github.io/?https://github.com/responderi/Yatzy/blob/master/documentation/pit-reports/201705031829/index.html)
 
 ## Instructions:
 

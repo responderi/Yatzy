@@ -22,8 +22,8 @@ public class GameLauncher {
      */
     public static void main(String[] args) throws Exception {
         ArrayList<Dice> dice = new ArrayList<>();
-        Human player1 = new Human("player1");
-        Human player2 = new Human("player2");
+        Human player1 = new Human("Player 1");
+        Human player2 = new Human("Player 2");
         Score newScore = new Score();
         Game newGame = new Game(newScore, player1, player2, dice);
         GameScreenGUI gui = new GameScreenGUI(newGame, player1, player2, dice, newScore);

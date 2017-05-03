@@ -56,6 +56,12 @@ public class DoneRollingListener implements ActionListener {
             die3.setText("" + dice.get(2).getValue());
             die4.setText("" + dice.get(3).getValue());
             die5.setText("" + dice.get(4).getValue());
+            die1Button.setEnabled(true);
+            die2Button.setEnabled(true);
+            die3Button.setEnabled(true);
+            die4Button.setEnabled(true);
+            die5Button.setEnabled(true);
+            doneRolling.setEnabled(false);
             game.addReroll();
         } else {
             die1.setText("" + dice.get(0).getValue());
@@ -71,9 +77,8 @@ public class DoneRollingListener implements ActionListener {
             die5Button.setEnabled(false);
             doneRolling.setEnabled(false);
             scoreButton.setEnabled(false);
-            ScoringScreenGUI scoringGui = new ScoringScreenGUI(game, score, player1, player2, dice);
+            ScoringScreenGUI scoringGui = new ScoringScreenGUI(game, score, player1, player2, dice, rerollButton);
             SwingUtilities.invokeLater(scoringGui);
-            rerollButton.setEnabled(true);
         }
     }
 }

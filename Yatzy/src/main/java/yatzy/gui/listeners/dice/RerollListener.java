@@ -76,6 +76,14 @@ public class RerollListener implements ActionListener {
         this.inTurn = inTurn;
     }
 
+    private void refreshedText(JLabel label, Human player, int index) {
+        if (player.getScore(index) != -1) {
+            label.setText("" + player.getScore(index));
+        } else {
+            label.setText("0");
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         rerollButton.setEnabled(false);
@@ -86,44 +94,44 @@ public class RerollListener implements ActionListener {
         die4.setText("" + dice.get(3).getValue());
         die5.setText("" + dice.get(4).getValue());
         inTurn.setText("" + game.playerInTurn().getName());
-        player1Ones.setText("" + "" + player1.getScore(7));
-        player2Ones.setText("" + "" + player2.getScore(7));
-        player1Twos.setText("" + "" + player1.getScore(8));
-        player2Twos.setText("" + "" + player2.getScore(8));
-        player1ThreesUp.setText("" + "" + player1.getScore(9));
-        player2ThreesUp.setText("" + "" + player2.getScore(9));
-        player1FoursUp.setText("" + "" + player1.getScore(10));
-        player2FoursUp.setText("" + "" + player2.getScore(10));
-        player1Fives.setText("" + "" + player1.getScore(11));
-        player2Fives.setText("" + "" + player2.getScore(11));
-        player1Sixes.setText("" + "" + player1.getScore(12));
-        player2Sixes.setText("" + "" + player2.getScore(12));
-        player1Bonus.setText("" + "" + player1.upperSectionBonus());
-        player2Bonus.setText("" + "" + player2.upperSectionBonus());
-        player1Upper.setText("" + "" + player1.getUpperSectionScore());
-        player2Upper.setText("" + "" + player2.getUpperSectionScore());
-        player1Pair.setText("" + "" + player1.getScore(5));
-        player2Pair.setText("" + "" + player2.getScore(5));
-        player1TwoPairs.setText("" + "" + player1.getScore(4));
-        player2TwoPairs.setText("" + "" + player2.getScore(4));
-        player1Threes.setText("" + "" + player1.getScore(3));
-        player2Threes.setText("" + "" + player2.getScore(3));
-        player1Fours.setText("" + "" + player1.getScore(2));
-        player2Fours.setText("" + "" + player2.getScore(2));
-        player1FullHouse.setText("" + "" + player1.getScore(1));
-        player2FullHouse.setText("" + "" + player2.getScore(1));
-        player1Sum.setText("" + "" + player1.getScore(6));
-        player2Sum.setText("" + "" + player2.getScore(6));
-        player1Yatzy.setText("" + "" + player1.getScore(0));
-        player2Yatzy.setText("" + "" + player2.getScore(0));
-        player1Total.setText("" + "" + player1.getTotalScore());
-        player2Total.setText("" + "" + player2.getTotalScore());
+        refreshedText(player1Ones, player1, 7);
+        refreshedText(player2Ones, player2, 7);
+        refreshedText(player1Twos, player1, 8);
+        refreshedText(player2Twos, player2, 8);
+        refreshedText(player1ThreesUp, player1, 9);
+        refreshedText(player2ThreesUp, player2, 9);
+        refreshedText(player1FoursUp, player1, 10);
+        refreshedText(player2FoursUp, player2, 10);
+        refreshedText(player1Fives, player1, 11);
+        refreshedText(player2Fives, player2, 11);
+        refreshedText(player1Sixes, player1, 12);
+        refreshedText(player2Sixes, player2, 12);
+        player1Bonus.setText("" + player1.upperSectionBonus());
+        player2Bonus.setText("" + player2.upperSectionBonus());
+        player1Upper.setText("" + player1.getUpperSectionScore());
+        player2Upper.setText("" + player2.getUpperSectionScore());
+        refreshedText(player1Pair, player1, 5);
+        refreshedText(player2Pair, player2, 5);
+        refreshedText(player1TwoPairs, player1, 4);
+        refreshedText(player2TwoPairs, player2, 4);
+        refreshedText(player1Threes, player1, 3);
+        refreshedText(player2Threes, player2, 3);
+        refreshedText(player1Fours, player1, 2);
+        refreshedText(player2Fours, player2, 2);
+        refreshedText(player1FullHouse, player1, 1);
+        refreshedText(player2FullHouse, player2, 1);
+        refreshedText(player1Sum, player1, 6);
+        refreshedText(player2Sum, player2, 6);
+        refreshedText(player1Yatzy, player1, 0);
+        refreshedText(player2Yatzy, player2, 0);
+        player1Total.setText("" + player1.getTotalScore());
+        player2Total.setText("" + player2.getTotalScore());
         die1Button.setEnabled(true);
         die2Button.setEnabled(true);
         die3Button.setEnabled(true);
         die4Button.setEnabled(true);
         die5Button.setEnabled(true);
-        doneRolling.setEnabled(true);
+        doneRolling.setEnabled(false);
         scoreButton.setEnabled(true);
     }
 }

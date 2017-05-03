@@ -20,4 +20,5 @@ Date | Hours | Description
 01.05.2017 | 9h | Programming GUI.
 02.05.2017 | 10h | Finishing GUI.
 03.05.2017 | 4h | Updating documentation.
+03.05.2017 | 3h | Fixed bugs and made GUI more user-friendly.
 ... | ... | ...

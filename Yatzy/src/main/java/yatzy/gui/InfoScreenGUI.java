@@ -22,7 +22,7 @@ public class InfoScreenGUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Yatzy - How to play");
-        frame.setPreferredSize(new Dimension(590, 300));
+        frame.setPreferredSize(new Dimension(590, 210));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,7 +39,7 @@ public class InfoScreenGUI implements Runnable {
     private JPanel infoMenu() {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         JButton infoButton = new JButton("Understood!");
-        JTextArea infoText = new JTextArea("How to play:\n You will start your turn by pressing 'Reroll' button.\n If you want to reroll some of the dice, reroll them by pressing specific die buttons and then 'Done rolling'.\n If you havent chosen to score earlier, you will be forced to score after two reroll times.\n Scores and player in turn (left to 'Player 1' text) will update always after one's first reroll-button push.\n NOTE! SCORES WILL BE SHOWN AS '-1' IF THE CATEGORY IS NOT SCORED YET!");
+        JTextArea infoText = new JTextArea("How to play:\n You will start your turn by pressing 'Reroll' button.\n If you want to reroll some of the dice, reroll them by pressing specific die buttons and then 'Done rolling'.\n If you havent chosen to score earlier, you will be forced to score after two reroll times.\n Scores and player in turn (left to 'Player 1' text) will update always after one's first reroll-button push.");
         InfoListener infoListener = new InfoListener(frame);
         infoButton.addActionListener(infoListener);
         infoText.setEnabled(false);

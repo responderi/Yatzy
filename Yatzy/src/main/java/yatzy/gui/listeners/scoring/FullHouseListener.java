@@ -16,18 +16,21 @@ public class FullHouseListener implements ActionListener {
     public Score score;
     public Human player;
     public JFrame frame;
+    public JButton button;
     
-    public FullHouseListener(Game game, Score score, Human player, JFrame frame) {
+    public FullHouseListener(Game game, Score score, Human player, JFrame frame, JButton button) {
         this.game = game;
         this.score = score;
         this.player = player;
         this.frame = frame;
+        this.button = button;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         score.counting(player, game, 2);
         game.changeTurn();
+        button.setEnabled(true);
         frame.dispose();
     }
 }
