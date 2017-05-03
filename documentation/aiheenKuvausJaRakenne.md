@@ -7,8 +7,7 @@ Game will have single-player against AI and local multiplayer with other humans.
 **Users:** Players 
 
 ## Player's actions:
-* playing against AI and humans
-* inspecting high score list
+* playing against humans
 
 ## Class diagram:
 ![Class diagram](luokkakaavio.png)
@@ -19,10 +18,16 @@ Game will have single-player against AI and local multiplayer with other humans.
 
 ## Structure description:
 
-Game gets started by GameLauncher class, which calls for new class Game. Game class now initializes game environment which requires players and scoring to be connected. Classes Player and Score will be called during the initialization. During every turn, dice from Dice class will be modified and their values will be used in Score class to specify scoring value of the dice value. 
+Game gets started by GameLauncher class, which calls for new class Game. Game class now initializes game environment which requires players and scoring to be connected. Classes Player and Score will be called during the initialization. All this information is passed for GameScreenGUI class to be utilized as data for GUI.
 
-After this, the point information is being sent to Player object to store one's score. After the game is over, scoring class sends the high scores for HighScore class, which saves the best results in a text file.
+Before game starts, players get a quick how-to-play by popup InfoScreenGUI. During every turn, dice from Dice class will be modified and their values will be used in Score class to specify scoring value of the dice value. After this, the point information is being sent to Player object to store one's score. ScoringScreenGUI shows this event for player. After both players have scored 13 categories, players will see EndScreenGUI, which includes information of a game's winner.
+
 
 ## Instructions:
 
-Game is very simple to use. Start up the jar file in directory and follow the rules given in game.
+Game is very simple to use. Start up the jar file in directory and follow the rules given in game. Rules and how to play will popup when game is started, but here they are in short:
+* You try to score each category with 2 rerolls each turn. During each reroll you are allowed to throw every dice.
+* You will be forced to score after 2 rerolls (not including round starting reroll), unless you have pressed Score by yourself earlier.
+* Score fitting category when the screen is presented to you.
+* Next player's turn will start by pressing Reroll after scoring event.
+* This will keep going for 13 turns per player and after that there will be an end screen with results. You can exit the game by pressing 'Exit' button.
