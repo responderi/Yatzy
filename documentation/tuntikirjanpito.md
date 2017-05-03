@@ -17,4 +17,7 @@ Date | Hours | Description
 24.04.2017 | 3h | Setting up javadoc and documentation.
 26.04.2017 | 3h | Programming.
 27.04.2017 | 4h | Pushing for deadline.
+01.05.2017 | 9h | Programming GUI.
+02.05.2017 | 10h | Finishing GUI.
+03.05.2017 | 4h | Updating documentation.
 ... | ... | ...
