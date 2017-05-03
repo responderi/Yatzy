@@ -14,18 +14,20 @@ public class DiceFiveListener implements ActionListener {
 
     private ArrayList<Dice> dice;
     private Game game;
-    private JButton button, doneButton;
+    private JButton button, doneButton, scoreButton;
     
-    public DiceFiveListener(ArrayList<Dice> dice,Game game,JButton button,JButton doneButton){
+    public DiceFiveListener(ArrayList<Dice> dice,Game game,JButton button,JButton doneButton,JButton scoreButton){
         this.game = game;
         this.dice = dice;
         this.button = button;
         this.doneButton = doneButton;
+        this.scoreButton = scoreButton;
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
         game.rerollDie(5);
         button.setEnabled(false);
+        scoreButton.setEnabled(false);
         doneButton.setEnabled(true);
     }
 }

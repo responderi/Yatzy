@@ -82,6 +82,7 @@ public class Human implements Player {
                 sum += this.scoreboard[i];
             }
         }
+        sum += this.upperSectionBonus();
         return sum;
     }
 

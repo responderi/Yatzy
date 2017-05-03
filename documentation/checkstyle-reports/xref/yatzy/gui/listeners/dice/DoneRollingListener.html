@@ -70,26 +70,27 @@
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>              die4Button.setEnabled(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>              die5Button.setEnabled(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>              doneRolling.setEnabled(false);
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>              game.addReroll();
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>              die1.setText(<span class="jxr_string">""</span> + dice.get(0).getValue());
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>              die2.setText(<span class="jxr_string">""</span> + dice.get(1).getValue());
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>              die3.setText(<span class="jxr_string">""</span> + dice.get(2).getValue());
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>              die4.setText(<span class="jxr_string">""</span> + dice.get(3).getValue());
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>              die5.setText(<span class="jxr_string">""</span> + dice.get(4).getValue());
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>              game.resetRerolls();
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>              die1Button.setEnabled(false);
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>              die2Button.setEnabled(false);
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>              die3Button.setEnabled(false);
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>              die4Button.setEnabled(false);
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>              die5Button.setEnabled(false);
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>              doneRolling.setEnabled(false);
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>              scoreButton.setEnabled(false);
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>              <a href="../../../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a> scoringGui = <strong class="jxr_keyword">new</strong> <a href="../../../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a>(game, score, player1, player2, dice, rerollButton);
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>              SwingUtilities.invokeLater(scoringGui);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          }
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>      }
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              scoreButton.setEnabled(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              game.addReroll();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>              die1.setText(<span class="jxr_string">""</span> + dice.get(0).getValue());
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              die2.setText(<span class="jxr_string">""</span> + dice.get(1).getValue());
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              die3.setText(<span class="jxr_string">""</span> + dice.get(2).getValue());
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              die4.setText(<span class="jxr_string">""</span> + dice.get(3).getValue());
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              die5.setText(<span class="jxr_string">""</span> + dice.get(4).getValue());
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              game.resetRerolls();
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              die1Button.setEnabled(false);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              die2Button.setEnabled(false);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              die3Button.setEnabled(false);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              die4Button.setEnabled(false);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              die5Button.setEnabled(false);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              doneRolling.setEnabled(false);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              scoreButton.setEnabled(false);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              <a href="../../../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a> scoringGui = <strong class="jxr_keyword">new</strong> <a href="../../../../yatzy/gui/ScoringScreenGUI.html">ScoringScreenGUI</a>(game, score, player1, player2, dice, rerollButton);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              SwingUtilities.invokeLater(scoringGui);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          }
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      }
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

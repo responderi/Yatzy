@@ -14,18 +14,20 @@ public class DiceFourListener implements ActionListener {
 
     private ArrayList<Dice> dice;
     private Game game;
-    private JButton button, doneButton;
+    private JButton button, doneButton, scoreButton;
     
-    public DiceFourListener(ArrayList<Dice> dice,Game game,JButton button,JButton doneButton){
+    public DiceFourListener(ArrayList<Dice> dice,Game game,JButton button,JButton doneButton,JButton scoreButton){
         this.game = game;
         this.dice = dice;
         this.button = button;
         this.doneButton = doneButton;
+        this.scoreButton = scoreButton;
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
         game.rerollDie(4);
         button.setEnabled(false);
+        scoreButton.setEnabled(false);
         doneButton.setEnabled(true);
     }
 }

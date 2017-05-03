@@ -67,6 +67,5 @@ public class ScoreListener implements ActionListener {
         doneRolling.setEnabled(false);
         ScoringScreenGUI gui = new ScoringScreenGUI(game, score, player1, player2, dice, rerollButton);
         SwingUtilities.invokeLater(gui);
-        rerollButton.setEnabled(true);
     }
 }

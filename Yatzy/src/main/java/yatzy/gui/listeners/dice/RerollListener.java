@@ -87,6 +87,7 @@ public class RerollListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         rerollButton.setEnabled(false);
+        rerollButton.setText("End turn");
         game.rerollDice();
         die1.setText("" + dice.get(0).getValue());
         die2.setText("" + dice.get(1).getValue());

@@ -62,6 +62,7 @@ public class DoneRollingListener implements ActionListener {
             die4Button.setEnabled(true);
             die5Button.setEnabled(true);
             doneRolling.setEnabled(false);
+            scoreButton.setEnabled(true);
             game.addReroll();
         } else {
             die1.setText("" + dice.get(0).getValue());
