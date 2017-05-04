@@ -4,7 +4,7 @@ I create game that is based on rolling the dive and using their values for scori
 
 Game will have local multiplayer with other humans. 
 
-In future, game will have some sort of high score list for keeping track of best performances and an single-player against ai.
+In future, game will have some sort of high score list for keeping track of best performances and a single-player against ai.
 
 **Users:** Players 
 
